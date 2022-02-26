@@ -18,6 +18,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.composedemo.ComponentExamples.checkLinearLayoutHorizontal
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,73 +28,19 @@ class MainActivity : ComponentActivity() {
             ComposeDemoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    checkFrameLayout()
+                    checkLinearLayoutHorizontal()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(
-        "Hello $name",
-        fontSize = 22.sp,
-        modifier = Modifier
-            .background(Color.Yellow)
-            .padding(10.dp)
-            .height(170.dp)
-            .widthIn()
-            .fillMaxSize()
-            .offset(x = 30.dp, y = 50.dp)
-            .verticalScroll(ScrollState(0))
-            .horizontalScroll(ScrollState(0))
-    )
-}
 
-@Composable
-fun ClickCounter() {
-    val count = remember { mutableStateOf(0) }
-
-    Text("Clicks: ${count.value}",
-        fontSize = 28.sp,
-        modifier = Modifier
-            .clickable(onClick = { count.value += 1 })
-            .fillMaxHeight()
-            .fillMaxWidth()
-    )
-}
-
-@Composable
-fun checkFrameLayout() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Box(modifier = Modifier
-            .background(Color.Blue)
-            .size(300.dp))
-        Box(modifier = Modifier
-            .background(Color.LightGray)
-            .size(200.dp))
-        Box(modifier = Modifier
-            .background(Color.Cyan)
-            .size(100.dp))
-        Text("Hello  !", style = TextStyle(fontSize = 22.sp))
-    }
-}
-
-@Composable
-fun checkLinearLayout() {
-    Column {
-        Text("Hello", style = TextStyle(fontSize = 22.sp))
-        Text("World", style = TextStyle(fontSize = 22.sp))
-        Text("from", style = TextStyle(fontSize = 22.sp))
-        Text("Jetpack Compose", style = TextStyle(fontSize = 22.sp))
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ComposeDemoTheme {
-        checkFrameLayout()
+        checkLinearLayoutHorizontal()
     }
 }
