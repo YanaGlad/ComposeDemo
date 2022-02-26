@@ -5,10 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -77,21 +74,56 @@ fun initial() {
 
         Image(
             bitmap = ImageBitmap.imageResource(R.drawable.algebra),
-            contentDescription = "Красный прямоугольник",
+            contentDescription = "Примеры колец",
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .offset(y = 30.dp),
+                .offset(y = 25.dp),
             contentScale = ContentScale.Crop
         )
 
         Text(
-            modifier = Modifier.offset(y = 35.dp),
-            text = "Далее",
+            modifier = Modifier.offset(y = 30.dp),
+            text = "Коммутативное кольцо",
             fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            textAlign = TextAlign.Start
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center
         )
+
+        Text(
+            text = "Если умножение коммутативно ab = ba для любых a,b из кольца, то такое кольцо называют коммутативным",
+            modifier = Modifier
+                .offset(y = 30.dp, x = 8.dp)
+                .padding(end = 8.dp)
+        )
+
+        Text(
+            modifier = Modifier.offset(y = 30.dp),
+            text = "Обратимые элементы",
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center
+        )
+
+        Text(
+            text = "Если в кольце есть нейтральный элемент по умножению, который" +
+                    " называют и обозначают как 1, то такое кольцо называется кольцом с единицей",
+            modifier = Modifier
+                .offset(y = 35.dp, x = 8.dp)
+                .padding(end = 8.dp)
+        )
+
+        Text(
+            text = "К - кольцо с единицей. Элемент а этого кольца называют обратимым, " +
+                    "если ab = ba = 1. В этом случае b обратен к а и может обозначаться как a^(-1)",
+            modifier = Modifier
+                .offset(y = 35.dp, x = 8.dp)
+                .padding(end = 8.dp)
+        )
+
+        Button(onClick = {}){
+            Text("Click", fontSize = 25.sp)
+        }
     }
 }
 
