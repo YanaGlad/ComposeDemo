@@ -19,6 +19,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,9 +30,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeDemoTheme {
-                // A surface container using the 'background' color from the theme
+
                 Surface(color = MaterialTheme.colors.background) {
-                    Initial()
+                    val navController = rememberNavController()
+                    NavHost(navController, startDestination = "ring_description") {
+                        composable("ring_description") { RingDescribeScreenFirst(navController) }
+                        composable("ring_description_quiz") { RingDescribeScreenQuiz() }
+                    }
                 }
             }
         }
@@ -36,7 +44,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Initial() {
+fun RingDescribeScreenFirst(navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -117,7 +125,7 @@ fun Initial() {
         )
 
         Button(
-            onClick = {},
+            onClick = { navController.navigate("ring_description_quiz") },
             modifier = Modifier
                 .padding(top = 50.dp)
                 .fillMaxWidth(),
@@ -132,10 +140,20 @@ fun Initial() {
     }
 }
 
+@Composable
+fun RingDescribeScreenQuiz() {
+    Text(text = "Second screen!")
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+
     ComposeDemoTheme {
-        Initial()
+        val navController = rememberNavController()
+        NavHost(navController, startDestination = "ring_description") {
+            composable("ring_description") { RingDescribeScreenFirst(navController) }
+            composable("ring_description_quiz") { RingDescribeScreenQuiz() }
+        }
     }
 }
