@@ -7,23 +7,18 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composedemo.ComponentExamples.checkLinearLayoutHorizontal
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +28,7 @@ class MainActivity : ComponentActivity() {
             ComposeDemoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    initial()
+                    Initial()
                 }
             }
         }
@@ -41,7 +36,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun initial() {
+fun Initial() {
 
     Column(
         modifier = Modifier
@@ -121,8 +116,18 @@ fun initial() {
                 .padding(end = 8.dp)
         )
 
-        Button(onClick = {}){
-            Text("Click", fontSize = 25.sp)
+        Button(
+            onClick = {},
+            modifier = Modifier
+                .padding(top = 50.dp)
+                .fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700) , contentColor = Color.Black)
+        ) {
+            Text(
+                text = "Дальше",
+                fontSize = 20.sp,
+                color = Color.White
+            )
         }
     }
 }
@@ -131,6 +136,6 @@ fun initial() {
 @Composable
 fun DefaultPreview() {
     ComposeDemoTheme {
-        initial()
+        Initial()
     }
 }
