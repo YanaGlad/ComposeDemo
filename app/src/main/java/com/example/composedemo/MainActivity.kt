@@ -15,6 +15,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -59,12 +63,34 @@ fun initial() {
         Text(
             text = "Кольцо R - это абелева группа (Т.е. включает операцию сложения " +
                     "+ и нейтральный элемент 0), в которой так же определен вторая операция - умножение",
-            modifier = Modifier.offset(y = 16.dp, x = 8.dp).padding(end = 8.dp)
+            modifier = Modifier
+                .offset(y = 16.dp, x = 8.dp)
+                .padding(end = 8.dp)
         )
 
         Text(
             text = "Кольцо ассоциативно, если операция умножения ассоциативна a(bc) = (ab)c",
-            modifier = Modifier.offset(y = 16.dp, x = 8.dp).padding(end = 8.dp)
+            modifier = Modifier
+                .offset(y = 16.dp, x = 8.dp)
+                .padding(end = 8.dp)
+        )
+
+        Image(
+            bitmap = ImageBitmap.imageResource(R.drawable.algebra),
+            contentDescription = "Красный прямоугольник",
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .offset(y = 30.dp),
+            contentScale = ContentScale.Crop
+        )
+
+        Text(
+            modifier = Modifier.offset(y = 35.dp),
+            text = "Далее",
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Start
         )
     }
 }
