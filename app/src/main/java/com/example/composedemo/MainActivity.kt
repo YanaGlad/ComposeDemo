@@ -23,6 +23,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.composedemo.Navigation.RING_DESCRIPTION
+import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -125,11 +127,11 @@ fun RingDescribeScreenFirst(navController: NavController) {
         )
 
         Button(
-            onClick = { navController.navigate("ring_description_quiz") },
+            onClick = { navController.navigate(RING_DESCRIPTION_QUIZ) },
             modifier = Modifier
                 .padding(top = 50.dp)
                 .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700) , contentColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700), contentColor = Color.Black)
         ) {
             Text(
                 text = "Дальше",
@@ -151,9 +153,14 @@ fun DefaultPreview() {
 
     ComposeDemoTheme {
         val navController = rememberNavController()
-        NavHost(navController, startDestination = "ring_description") {
-            composable("ring_description") { RingDescribeScreenFirst(navController) }
-            composable("ring_description_quiz") { RingDescribeScreenQuiz() }
+        NavHost(navController, startDestination = RING_DESCRIPTION) {
+            composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
+            composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz() }
         }
     }
+}
+
+object Navigation {
+    const val RING_DESCRIPTION = "ring_description"
+    const val RING_DESCRIPTION_QUIZ = "ring_description_quiz"
 }
