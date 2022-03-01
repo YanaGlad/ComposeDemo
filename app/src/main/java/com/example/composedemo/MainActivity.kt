@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -64,7 +65,7 @@ fun RingDescribeScreenFirst(navController: NavController) {
 
         Text(
             text = "Кольцо R - это абелева группа (Т.е. включает операцию сложения " +
-                    "+ и нейтральный элемент 0), в которой так же определен вторая операция - умножение",
+                    stringResource(R.string.abeleva_group),
             modifier = Modifier
                 .offset(y = 16.dp, x = 8.dp)
                 .padding(end = 8.dp)
@@ -79,7 +80,7 @@ fun RingDescribeScreenFirst(navController: NavController) {
 
         Image(
             bitmap = ImageBitmap.imageResource(R.drawable.algebra),
-            contentDescription = "Примеры колец",
+            contentDescription = stringResource(R.string.ring_examples),
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -89,14 +90,14 @@ fun RingDescribeScreenFirst(navController: NavController) {
 
         Text(
             modifier = Modifier.offset(y = 30.dp),
-            text = "Коммутативное кольцо",
+            text = stringResource(R.string.commutate_rign),
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
             textAlign = TextAlign.Center
         )
 
         Text(
-            text = "Если умножение коммутативно ab = ba для любых a,b из кольца, то такое кольцо называют коммутативным",
+            text = stringResource(R.string.commutate_ring_description),
             modifier = Modifier
                 .offset(y = 30.dp, x = 8.dp)
                 .padding(end = 8.dp)
@@ -111,16 +112,14 @@ fun RingDescribeScreenFirst(navController: NavController) {
         )
 
         Text(
-            text = "Если в кольце есть нейтральный элемент по умножению, который" +
-                    " называют и обозначают как 1, то такое кольцо называется кольцом с единицей",
+            text = stringResource(R.string.netural_element),
             modifier = Modifier
                 .offset(y = 35.dp, x = 8.dp)
                 .padding(end = 8.dp)
         )
 
         Text(
-            text = "К - кольцо с единицей. Элемент а этого кольца называют обратимым, " +
-                    "если ab = ba = 1. В этом случае b обратен к а и может обозначаться как a^(-1)",
+            text = stringResource(R.string.ring_with_1),
             modifier = Modifier
                 .offset(y = 35.dp, x = 8.dp)
                 .padding(end = 8.dp)
