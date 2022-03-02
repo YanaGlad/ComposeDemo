@@ -40,7 +40,12 @@ fun RingDescribeScreenQuiz() {
             fontSize = 16.sp,
         )
 
-        CheckBoxWithText("Операция сложения +")
+        CheckBoxWithText("Операция сложения +", 16, 8)
+        CheckBoxWithText("Нейтральный элемент", 16, 8)
+        CheckBoxWithText("Операция вычитания -", 16, 8)
+        CheckBoxWithText("Обратимый элемент", 16, 8)
+        CheckBoxWithText("Операция умножения *", 16, 8)
+
     }
 }
 

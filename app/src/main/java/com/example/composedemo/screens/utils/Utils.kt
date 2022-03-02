@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun CheckBoxWithText(text: String) {
-    val checkedState = remember { mutableStateOf(true) }
+fun CheckBoxWithText(text: String, fontSize: Int, padding: Int) {
+    val checkedState = remember { mutableStateOf(false) }
 
     Row {
         Checkbox(
@@ -27,10 +27,10 @@ fun CheckBoxWithText(text: String) {
         )
         Text(
             text = text,
-            fontSize = 22.sp,
+            fontSize = fontSize.sp,
             modifier = Modifier
                 .offset(x = 18.dp)
-                .padding(top = 2.dp)
+                .padding(top = padding.dp),
         )
     }
 }
