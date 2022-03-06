@@ -91,7 +91,7 @@ object CheckBoxUtils {
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.transparent), contentColor = Color.Black)
             ) {
                 Text(
-                    text = "ОК",
+                    text = "Ответить",
                     fontSize = 20.sp,
                     color = Color.Black
                 )
@@ -103,7 +103,7 @@ object CheckBoxUtils {
                     .fillMaxWidth(),
                 text = if (check.value) "Верно" else "Не верно",
                 fontSize = 20.sp,
-                color = Color.Black,
+                color =  if (check.value)  colorResource(R.color.green_correct) else Color.Red,
                 textAlign = TextAlign.Center
             )
         }
