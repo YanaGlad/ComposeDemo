@@ -1,8 +1,14 @@
 package com.example.composedemo.screens.compose.algebra
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
+import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
+
 /*
  * @author Yana Glad
  */
-object TheoryScreen {
-
+@Composable
+fun TheoryScreen(navController: NavController) {
+    InTheDevelopmentScreen(navController = navController)
 }

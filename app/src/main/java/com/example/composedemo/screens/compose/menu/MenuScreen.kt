@@ -17,6 +17,7 @@ import com.example.composedemo.Navigation.ALGEBRA_MENU
 import com.example.composedemo.Navigation.AUTHOR
 import com.example.composedemo.Navigation.AUTOMAT_MENU
 import com.example.composedemo.Navigation.COMPLEX_MENU
+import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.METHOD_COMPLEX_MENU
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.ButtonUtils.BasicNextButton
@@ -61,25 +62,25 @@ fun MenuScreen(navController: NavController) {
         BasicNextButton(
             text = "Автоматы и алгоритмы",
             navController = navController,
-            destination = AUTOMAT_MENU,
+            destination = IN_DEV,
             padding = 25
         )
         BasicNextButton(
             text = "Комплексный анализ",
             navController = navController,
-            destination = COMPLEX_MENU,
+            destination = IN_DEV,
             padding = 25
         )
         BasicNextButton(
             text = "Методы комплексного анализа",
             navController = navController,
-            destination = METHOD_COMPLEX_MENU,
+            destination = IN_DEV,
             padding = 25
         )
         BasicNextButton(
             text = "Связаться с автором",
             navController = navController,
-            destination = AUTHOR,
+            destination = IN_DEV,
             padding = 30
         )
     }

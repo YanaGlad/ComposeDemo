@@ -11,7 +11,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.composedemo.Navigation.ALGEBRA_MENU
+import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
+import com.example.composedemo.screens.compose.algebra.TheoryScreen
+import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
@@ -20,6 +23,7 @@ import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
 import com.example.composedemo.screens.compose.algebra.TicketsScreen
 import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
+import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
 import com.example.composedemo.screens.compose.menu.ResultOnboarding
 import com.example.composedemo.ui.theme.ComposeDemoTheme
@@ -61,17 +65,9 @@ fun Navigation() {
                 correctAnswerCount =  it.arguments?.getInt("correct") ?:0,
             ) }
         composable(ALGEBRA_TICKETS) { TicketsScreen(navController) }
-
+        composable(ALGEBRA_THEORY) { TheoryScreen (navController) }
+        composable(IN_DEV) { InTheDevelopmentScreen (navController) }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-
-//    ComposeDemoTheme {
-//     //   Navigation()
-//    }
 }
 
 object Navigation {
@@ -80,6 +76,7 @@ object Navigation {
     const val THIRD_SEM_MENU = "third_sem_menu"
     const val FOUTH_SEM_MENU = "fouth_sem_menu"
     const val AUTHOR = "author"
+    const val IN_DEV = "in_dev"
 
     //Алгебра
     const val ALGEBRA_MENU = "algebra_menu"

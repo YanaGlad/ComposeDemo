@@ -55,14 +55,14 @@ fun AlgebraMenuScreen(navController: NavController) {
         ButtonUtils.BasicNextButton(
             text = "Теория",
             navController = navController,
-            destination = Navigation.COMPLEX_MENU,
+            destination = Navigation.ALGEBRA_THEORY,
             padding = 25
         )
 
         ButtonUtils.BasicNextButton(
             text = "Билеты с решениями",
             navController = navController,
-            destination = Navigation.COMPLEX_MENU,
+            destination = Navigation.ALGEBRA_TICKETS,
             padding = 25
         )
     }
