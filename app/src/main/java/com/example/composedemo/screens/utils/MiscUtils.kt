@@ -27,7 +27,7 @@ object MiscUtils {
                 onClick = {
                     visible.value = false
 
-                    if (condition) check.value = false
+                    check.value = condition
 
                     if (check.value) {
                         onSuccess()

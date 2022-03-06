@@ -77,6 +77,6 @@ object RadioButtonUtils {
             }
         }
 
-        AnswerButton(selectedOption != "Kotlin")
+        AnswerButton(selectedOption == "Kotlin")
     }
 }

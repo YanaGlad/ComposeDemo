@@ -65,49 +65,16 @@ object CheckBoxUtils {
             checkStates.add(remember { mutableStateOf(false) })
         }
 
-        CheckBoxWithText(listOfNames[0], 16, 8, checkStates[0])
-        CheckBoxWithText(listOfNames[1], 16, 8, checkStates[1])
-        CheckBoxWithText(listOfNames[2], 16, 8, checkStates[2])
-        CheckBoxWithText(listOfNames[3], 16, 8, checkStates[3])
-        CheckBoxWithText(listOfNames[4], 16, 8, checkStates[4])
-
-        val visible = remember { mutableStateOf(true) }
-        val check = remember { mutableStateOf(true) }
-        if (visible.value) {
-            Button(
-                onClick = {
-                    visible.value = false
-                    for (index in 0 until countCheckBox) {
-                        if (index !in correctIndexes && checkStates[index].value) check.value = false
-                        if (index in correctIndexes && !checkStates[index].value) check.value = false
-                    }
-                    if (check.value) {
-                        onSuccess()
-                    } else {
-                        onFail()
-                    }
-                },
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.transparent), contentColor = Color.Black)
-            ) {
-                Text(
-                    text = "Ответить",
-                    fontSize = 20.sp,
-                    color = Color.Black
-                )
-            }
-        } else {
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .fillMaxWidth(),
-                text = if (check.value) "Верно" else "Не верно",
-                fontSize = 20.sp,
-                color =  if (check.value)  colorResource(R.color.green_correct) else Color.Red,
-                textAlign = TextAlign.Center
-            )
+        for (i in 0 until countCheckBox) {
+            CheckBoxWithText(listOfNames[i], 16, 8, checkStates[i])
         }
+
+        var condition = true
+        for (index in 0 until countCheckBox) {
+            if (index !in correctIndexes && checkStates[index].value) condition = false
+            if (index in correctIndexes && !checkStates[index].value) condition = false
+        }
+
+        MiscUtils.AnswerButton(condition)
     }
 }
