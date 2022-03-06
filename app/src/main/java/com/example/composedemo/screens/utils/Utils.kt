@@ -1,9 +1,6 @@
 package com.example.composedemo.screens.utils
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Checkbox
@@ -12,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.R
@@ -47,7 +46,7 @@ object CheckBoxUtils {
     @Composable
     fun QuizCheckBox(
         quizTitle: String, countCheckBox: Int, listOfNames: List<String>,
-        correctIndexes: List<Int>, onSuccess: () -> Unit, onFail: () -> Unit,
+        correctIndexes: List<Int>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {},
     ) {
 
         Text(
@@ -70,28 +69,42 @@ object CheckBoxUtils {
         CheckBoxWithText(listOfNames[3], 16, 8, checkStates[3])
         CheckBoxWithText(listOfNames[4], 16, 8, checkStates[4])
 
-        Button(
-            onClick = {
-                var check = true
-                for (index in 0 until countCheckBox) {
-                    if (index !in correctIndexes && checkStates[index].value) check = false
-                    if (index in correctIndexes && !checkStates[index].value) check = false
-                }
-                if (check) {
-                    onSuccess()
-                } else {
-                    onFail()
-                }
-            },
-            modifier = Modifier
-                .padding(top = 50.dp)
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700), contentColor = Color.Black)
-        ) {
+        val visible = remember { mutableStateOf(true) }
+        val check = remember { mutableStateOf(true) }
+        if (visible.value) {
+            Button(
+                onClick = {
+                    visible.value = false
+                    for (index in 0 until countCheckBox) {
+                        if (index !in correctIndexes && checkStates[index].value) check.value = false
+                        if (index in correctIndexes && !checkStates[index].value) check.value = false
+                    }
+                    if (check.value) {
+                        onSuccess()
+                    } else {
+                        onFail()
+                    }
+                },
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.transparent), contentColor = Color.Black)
+            ) {
+                Text(
+                    text = "ОК",
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+            }
+        } else {
             Text(
-                text = "Дальше",
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .fillMaxWidth(),
+                text = if (check.value) "Верно" else "Не верно",
                 fontSize = 20.sp,
-                color = Color.White
+                color = Color.Black,
+                textAlign = TextAlign.Center
             )
         }
     }

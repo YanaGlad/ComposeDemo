@@ -1,22 +1,17 @@
 package com.example.composedemo.screens.algebra
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composedemo.R
-import com.example.composedemo.screens.utils.CheckBoxUtils.CheckBoxWithText
 import com.example.composedemo.screens.utils.CheckBoxUtils.QuizCheckBox
 
 /*
@@ -46,6 +41,48 @@ fun RingDescribeScreenQuiz() {
             onSuccess = { showSuccess() },
             onFail = { showFail() }
         )
+
+        Text(
+            text = "2) Какое кольцо называется коммутативным?",
+            modifier = Modifier
+                .offset(x = 16.dp)
+                .padding(top = 20.dp, bottom = 20.dp),
+            fontSize = 16.sp,
+        )
+
+        Column(Modifier.selectableGroup())
+        {
+            val state = remember { mutableStateOf(true) }
+            val change = { state.value = !state.value }
+
+            Row {
+                RadioButton(
+                    selected = state.value,
+                    onClick = { state.value = true },
+                    modifier = Modifier
+                        .offset(x = 16.dp)
+                        .padding(top = 1.dp)
+                )
+                Text(
+                    modifier = Modifier.offset(x = 18.dp),
+                    text = "Kotlin",
+                    fontSize = 16.sp
+                )
+            }
+            Row {
+                RadioButton(
+                    selected = !state.value,
+                    onClick = { state.value = false },
+                    modifier = Modifier
+                        .offset(x = 16.dp)
+                        .padding(top = 1.dp)
+                )
+                Text(
+                    modifier = Modifier.offset(x = 18.dp),
+                    text = "Java",
+                    fontSize = 16.sp)
+            }
+        }
     }
 }
 
