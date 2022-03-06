@@ -25,7 +25,7 @@ import com.example.composedemo.R
 object ButtonUtils {
 
     @Composable
-    fun BasicNextButton(navController: NavController, destination: String, padding: Int = 50) {
+    fun BasicNextButton(navController: NavController, destination: String, padding: Int = 50, text: String = "Дальше") {
         Button(
             onClick = { navController.navigate(destination) },
             modifier = Modifier
@@ -34,7 +34,7 @@ object ButtonUtils {
             colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.purple_700), contentColor = Color.Black)
         ) {
             Text(
-                text = "Дальше",
+                text = text,
                 fontSize = 20.sp,
                 color = Color.White
             )

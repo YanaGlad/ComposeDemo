@@ -13,8 +13,10 @@ import androidx.navigation.navArgument
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
+import com.example.composedemo.Navigation.MENU
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
+import com.example.composedemo.screens.compose.menu.MenuScreen
 import com.example.composedemo.screens.compose.menu.ResultOnboarding
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
@@ -37,7 +39,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = RING_DESCRIPTION) {
+    NavHost(navController, startDestination = MENU) {
+        composable(MENU) { MenuScreen (navController) }
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
         composable(
@@ -65,6 +68,16 @@ fun DefaultPreview() {
 }
 
 object Navigation {
+    const val MENU = "menu"
+    const val THIRD_SEM_MENU = "fouth_sem_menu"
+    const val FOUTH_SEM_MENU = "fouth_sem_menu"
+    const val ALGEBRA_MENU = "algebra_menu"
+    const val AUTOMAT_MENU = "automat_menu"
+    const val METHOD_COMPLEX_MENU = "method_complex_menu"
+    const val COMPLEX_MENU = "complex_menu"
+    const val DB_MENU = "db_menu"
+    const val DU_MENU = "du_menu"
+    const val AUTHOR = "author"
     const val RING_DESCRIPTION = "ring_description"
     const val RING_DESCRIPTION_QUIZ = "ring_description_quiz"
     const val RESULT_ONBOARDING = "result_onboarding"

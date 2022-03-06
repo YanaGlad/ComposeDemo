@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.R
 
 
@@ -52,7 +53,7 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                     modifier = Modifier
                         .clickable(
                             enabled = true,
-                            onClick = { }
+                            onClick = { navController.navigate(Navigation.MENU) }
                         )
                 ) {
                     Image(
