@@ -1,18 +1,18 @@
-package com.example.composedemo.screens.algebra
+package com.example.composedemo.screens.compose.algebra
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.composedemo.Navigation
+import com.example.composedemo.screens.utils.ButtonUtils
 import com.example.composedemo.screens.utils.CheckBoxUtils.QuizCheckBox
 import com.example.composedemo.screens.utils.RadioButtonUtils.QuizRadioButton
 
@@ -20,7 +20,7 @@ import com.example.composedemo.screens.utils.RadioButtonUtils.QuizRadioButton
  * @author Yana Glad
  */
 @Composable
-fun RingDescribeScreenQuiz() {
+fun RingDescribeScreenQuiz(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -44,6 +44,7 @@ fun RingDescribeScreenQuiz() {
                 "Операция вычитания -", "Обратимый элемент", "Операция умножения *"),
             correctIndexes = listOf(0, 1, 4),
             onSuccess = { countCorrect.value++ },
+            onFinally = { answered.value++ }
         )
 
         val answer2 = "Такой элемент a, что ab = ba = 1"
@@ -56,6 +57,7 @@ fun RingDescribeScreenQuiz() {
                 "Такой элемент а, что ab = ba = 0"),
             condition = answer2,
             onSuccess = { countCorrect.value++ },
+            onFinally = { answered.value++ },
         )
 
         val answer1 = "Операция умножения коммутативна"
@@ -68,6 +70,11 @@ fun RingDescribeScreenQuiz() {
                 "Если есть такой элемент а, что ab = ba = 1"),
             condition = answer1,
             onSuccess = { countCorrect.value++ },
+            onFinally = { answered.value++ },
         )
+
+        if(answered.value == 3) {
+            ButtonUtils.BasicNextButton(navController, Navigation.RESULT_ONBOARDING, 20)
+        }
     }
 }

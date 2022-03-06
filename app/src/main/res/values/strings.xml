@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ComposeDemo</string>
+    <string name="app_name">RocketExam</string>
     <string name="ring_with_1">К - кольцо с единицей. Элемент а этого кольца называют обратимым, если ab = ba = 1. В этом случае b обратен к а и может обозначаться как a^(-1)</string>
     <string name="netural_element">Если в кольце есть нейтральный элемент по умножению, который называют и обозначают как 1, то такое кольцо называется кольцом с единицей</string>
     <string name="commutate_ring_description">Если умножение коммутативно ab = ba для любых a,b из кольца, то такое кольцо называют коммутативным</string>

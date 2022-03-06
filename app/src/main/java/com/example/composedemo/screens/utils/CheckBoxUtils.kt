@@ -47,7 +47,7 @@ object CheckBoxUtils {
             text = quizTitle,
             modifier = Modifier
                 .offset(x = 16.dp)
-                .padding(top = 20.dp),
+                .padding(top = 14.dp),
             fontSize = 16.sp,
         )
 
@@ -66,7 +66,7 @@ object CheckBoxUtils {
             if (index !in correctIndexes && checkStates[index].value) condition = false
             if (index in correctIndexes && !checkStates[index].value) condition = false
         }
-        MiscUtils.AnswerButton(
+        ButtonUtils.AnswerButton(
             condition = condition,
             onSuccess = onSuccess,
             onFail = onFail,

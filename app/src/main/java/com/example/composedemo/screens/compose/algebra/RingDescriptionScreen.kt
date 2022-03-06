@@ -1,17 +1,13 @@
-package com.example.composedemo.screens.algebra
+package com.example.composedemo.screens.compose.algebra
 
-import androidx.compose.foundation.*
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -21,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.R
+import com.example.composedemo.screens.utils.ButtonUtils.BasicNextButton
 
 /*
  * @author Yana Glad
@@ -103,18 +100,6 @@ fun RingDescribeScreenFirst(navController: NavController) {
                 .padding(end = 8.dp)
         )
 
-        Button(
-            onClick = { navController.navigate(RING_DESCRIPTION_QUIZ) },
-            modifier = Modifier
-                .padding(top = 50.dp)
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700), contentColor = Color.Black)
-        ) {
-            Text(
-                text = "Дальше",
-                fontSize = 20.sp,
-                color = Color.White
-            )
-        }
+        BasicNextButton(navController, RING_DESCRIPTION_QUIZ)
     }
 }
