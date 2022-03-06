@@ -7,12 +7,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.screens.utils.CheckBoxUtils.QuizCheckBox
+import com.example.composedemo.screens.utils.RadioButtonUtils.QuizRadioButton
 
 /*
  * @author Yana Glad
@@ -42,47 +44,12 @@ fun RingDescribeScreenQuiz() {
             onFail = { showFail() }
         )
 
-        Text(
-            text = "2) Какое кольцо называется коммутативным?",
-            modifier = Modifier
-                .offset(x = 16.dp)
-                .padding(top = 20.dp, bottom = 20.dp),
-            fontSize = 16.sp,
+        QuizRadioButton(
+            quizTitle = "2) Какое кольцо называется коммутативным?",
+            listOfAnswers = listOf("Kotlin", "Java", "Javascript", "Rust")
         )
 
-        Column(Modifier.selectableGroup())
-        {
-            val state = remember { mutableStateOf(true) }
-            val change = { state.value = !state.value }
 
-            Row {
-                RadioButton(
-                    selected = state.value,
-                    onClick = { state.value = true },
-                    modifier = Modifier
-                        .offset(x = 16.dp)
-                        .padding(top = 1.dp)
-                )
-                Text(
-                    modifier = Modifier.offset(x = 18.dp),
-                    text = "Kotlin",
-                    fontSize = 16.sp
-                )
-            }
-            Row {
-                RadioButton(
-                    selected = !state.value,
-                    onClick = { state.value = false },
-                    modifier = Modifier
-                        .offset(x = 16.dp)
-                        .padding(top = 1.dp)
-                )
-                Text(
-                    modifier = Modifier.offset(x = 18.dp),
-                    text = "Java",
-                    fontSize = 16.sp)
-            }
-        }
     }
 }
 
