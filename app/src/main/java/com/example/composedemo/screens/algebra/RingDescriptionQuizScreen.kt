@@ -26,12 +26,15 @@ fun RingDescribeScreenQuiz() {
             .fillMaxHeight()
             .fillMaxWidth(),
     ) {
+        val countCorrect = remember { mutableStateOf(0) }
+        val answered = remember { mutableStateOf(0) }
+
         Text(
-            text = "Отлично! Теперь пройди короткий тест на знание базовых понятий о кольцах",
+            text = " Теперь пройди короткий тест на знание базовых понятий о кольцах",
             modifier = Modifier.offset(y = 16.dp),
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
 
         QuizCheckBox(
@@ -40,24 +43,31 @@ fun RingDescribeScreenQuiz() {
             listOfNames = listOf("Операция сложения +", "Нейтральный элемент",
                 "Операция вычитания -", "Обратимый элемент", "Операция умножения *"),
             correctIndexes = listOf(0, 1, 4),
-            onSuccess = { showSuccess() },
-            onFail = { showFail() }
+            onSuccess = { countCorrect.value++ },
         )
 
+        val answer2 = "Такой элемент a, что ab = ba = 1"
         QuizRadioButton(
-            quizTitle = "2) Какое кольцо называется коммутативным?",
-            listOfAnswers = listOf("Kotlin", "Java", "Javascript", "Rust")
+            quizTitle = "2) Что такое обратимый элемент?",
+            listOfAnswers = listOf(
+                answer2,
+                "Такой элемент а, что ab = ba != 1",
+                "Такой элемент а, что ab = ba = -1",
+                "Такой элемент а, что ab = ba = 0"),
+            condition = answer2,
+            onSuccess = { countCorrect.value++ },
         )
 
-
+        val answer1 = "Операция умножения коммутативна"
+        QuizRadioButton(
+            quizTitle = "3) Когда кольцо называется коммутативным?",
+            listOfAnswers = listOf(
+                "Операция сложения коммутативна",
+                "Операции сложения и умножения коммутативны",
+                answer1,
+                "Если есть такой элемент а, что ab = ba = 1"),
+            condition = answer1,
+            onSuccess = { countCorrect.value++ },
+        )
     }
 }
-
-fun showFail() {
-    println("NO")
-}
-
-fun showSuccess() {
-    println("YES")
-}
-

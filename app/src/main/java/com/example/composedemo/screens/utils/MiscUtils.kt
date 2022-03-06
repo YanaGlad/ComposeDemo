@@ -19,7 +19,7 @@ import com.example.composedemo.R
 object MiscUtils {
 
     @Composable
-    fun AnswerButton(condition: Boolean, onSuccess: () -> Unit = {}, onFail: () -> Unit = {}) {
+    fun AnswerButton(condition: Boolean, onSuccess: () -> Unit = {}, onFail: () -> Unit = {}, onFinally: () -> Unit = {}) {
         val visible = remember { mutableStateOf(true) }
         val check = remember { mutableStateOf(true) }
         if (visible.value) {
@@ -34,6 +34,7 @@ object MiscUtils {
                     } else {
                         onFail()
                     }
+                    onFinally()
                 },
                 modifier = Modifier
                     .padding(top = 10.dp)

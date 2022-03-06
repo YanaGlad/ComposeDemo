@@ -1,11 +1,8 @@
 package com.example.composedemo.screens.utils
 
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -13,12 +10,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composedemo.R
 
 /*
  * @author Yana Glad
@@ -48,9 +41,8 @@ object CheckBoxUtils {
     @Composable
     fun QuizCheckBox(
         quizTitle: String, countCheckBox: Int, listOfNames: List<String>,
-        correctIndexes: List<Int>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {},
+        correctIndexes: List<Int>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {}, onFinally: () -> Unit = {},
     ) {
-
         Text(
             text = quizTitle,
             modifier = Modifier
@@ -74,7 +66,11 @@ object CheckBoxUtils {
             if (index !in correctIndexes && checkStates[index].value) condition = false
             if (index in correctIndexes && !checkStates[index].value) condition = false
         }
-
-        MiscUtils.AnswerButton(condition)
+        MiscUtils.AnswerButton(
+            condition = condition,
+            onSuccess = onSuccess,
+            onFail = onFail,
+            onFinally = onFinally
+        )
     }
 }

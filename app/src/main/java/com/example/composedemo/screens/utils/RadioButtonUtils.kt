@@ -42,7 +42,8 @@ object RadioButtonUtils {
 
     @Composable
     fun QuizRadioButton(
-        quizTitle: String, listOfAnswers: List<String>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {},
+        quizTitle: String, listOfAnswers: List<String>, condition: String,
+        onSuccess: () -> Unit = {}, onFail: () -> Unit = {}, onFinally: () -> Unit = {},
     ) {
         Text(
             text = quizTitle,
@@ -77,6 +78,11 @@ object RadioButtonUtils {
             }
         }
 
-        AnswerButton(selectedOption == "Kotlin")
+        AnswerButton(
+            condition = selectedOption == condition,
+            onSuccess = onSuccess,
+            onFail = onFail,
+            onFinally = onFinally,
+        )
     }
 }
