@@ -31,7 +31,7 @@ object ButtonUtils {
             modifier = Modifier
                 .padding(top = padding.dp)
                 .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.teal_700), contentColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.purple_700), contentColor = Color.Black)
         ) {
             Text(
                 text = "Дальше",

@@ -76,7 +76,7 @@ fun RingDescribeScreenQuiz(navController: NavController) {
         if (answered.value == 3) {
             ButtonUtils.BasicNextButton(
                 navController = navController,
-                destination = "${Navigation.RESULT_ONBOARDING}/${answered.value}",
+                destination = "${Navigation.RESULT_ONBOARDING}/${answered.value}/${countCorrect.value}",
                 padding = 20
             )
         }

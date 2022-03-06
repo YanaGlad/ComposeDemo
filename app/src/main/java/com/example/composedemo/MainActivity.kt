@@ -41,10 +41,17 @@ fun Navigation() {
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
         composable(
-            "$RESULT_ONBOARDING/{total}",
-            arguments = listOf(navArgument("total") { defaultValue = 1 })
+            "$RESULT_ONBOARDING/{total}/{correct}",
+            arguments = listOf(
+                navArgument("total") { defaultValue = 1 },
+                navArgument("correct") { defaultValue = 0 }
+            )
         ) {
-            ResultOnboarding(navController = navController, totalAnswerCount = it.arguments?.getInt("total") ?:0) }
+            ResultOnboarding(
+                navController = navController,
+                totalAnswerCount = it.arguments?.getInt("total") ?:0,
+                correctAnswerCount =  it.arguments?.getInt("correct") ?:0,
+            ) }
     }
 }
 

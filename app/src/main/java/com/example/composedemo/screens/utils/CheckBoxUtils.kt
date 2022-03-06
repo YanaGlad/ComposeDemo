@@ -4,14 +4,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxColors
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.composedemo.R
 
 /*
  * @author Yana Glad
@@ -26,7 +30,11 @@ object CheckBoxUtils {
                     .offset(x = 16.dp)
                     .padding(top = 8.dp),
                 checked = checkedState.value,
-                onCheckedChange = { checkedState.value = it }
+                onCheckedChange = { checkedState.value = it },
+                colors = CheckboxDefaults.colors(
+                    checkedColor = colorResource(id = R.color.purple_700),
+                    checkmarkColor = colorResource(id = R.color.answer_button_color)
+                )
             )
             Text(
                 text = text,
