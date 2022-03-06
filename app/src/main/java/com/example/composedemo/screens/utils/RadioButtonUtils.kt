@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.R
+import com.example.composedemo.screens.utils.MiscUtils.AnswerButton
 
 object RadioButtonUtils {
 
@@ -76,42 +77,6 @@ object RadioButtonUtils {
             }
         }
 
-        val visible = remember { mutableStateOf(true) }
-        val check = remember { mutableStateOf(true) }
-        if (visible.value) {
-            Button(
-                onClick = {
-                    visible.value = false
-
-                    if(selectedOption != "Kotlin") check.value = false
-
-                    if (check.value) {
-                        onSuccess()
-                    } else {
-                        onFail()
-                    }
-                },
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.transparent), contentColor = Color.Black)
-            ) {
-                Text(
-                    text = "Ответить",
-                    fontSize = 20.sp,
-                    color = Color.Black
-                )
-            }
-        } else {
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .fillMaxWidth(),
-                text = if (check.value) "Верно" else "Не верно",
-                fontSize = 20.sp,
-                color =  if (check.value)  colorResource(R.color.green_correct) else Color.Red,
-                textAlign = TextAlign.Center
-            )
-        }
+        AnswerButton(selectedOption != "Kotlin")
     }
 }
