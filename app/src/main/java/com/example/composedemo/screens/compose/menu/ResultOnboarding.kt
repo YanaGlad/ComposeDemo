@@ -20,7 +20,7 @@ import com.example.composedemo.R
  * @author Yana Glad
  */
 @Composable
-fun ResultOnboarding(navController: NavController) {
+fun ResultOnboarding(navController: NavController,  totalAnswerCount: Int) {
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -38,7 +38,7 @@ fun ResultOnboarding(navController: NavController) {
 
         Text(
             modifier = Modifier.offset(y = 16.dp),
-            text = "Тест пройден, правильно 3/3",
+            text = "Тест пройден, правильно /$totalAnswerCount",
             fontWeight = FontWeight.Bold,
             fontSize = 30.sp,
             textAlign = TextAlign.Center

@@ -9,6 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
@@ -39,7 +40,11 @@ fun Navigation() {
     NavHost(navController, startDestination = RING_DESCRIPTION) {
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
-        composable(RESULT_ONBOARDING) { ResultOnboarding(navController) }
+        composable(
+            "$RESULT_ONBOARDING/{total}",
+            arguments = listOf(navArgument("total") { defaultValue = 1 })
+        ) {
+            ResultOnboarding(navController = navController, totalAnswerCount = it.arguments?.getInt("total") ?:0) }
     }
 }
 
@@ -47,9 +52,9 @@ fun Navigation() {
 @Composable
 fun DefaultPreview() {
 
-    ComposeDemoTheme {
-        Navigation()
-    }
+//    ComposeDemoTheme {
+//     //   Navigation()
+//    }
 }
 
 object Navigation {
