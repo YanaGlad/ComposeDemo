@@ -7,9 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -58,25 +56,25 @@ fun MenuScreen(navController: NavController) {
             text = "Алгебра и геометрия",
             navController = navController,
             destination = ALGEBRA_MENU,
-            padding = 30
+            padding = 25
         )
         BasicNextButton(
             text = "Автоматы и алгоритмы",
             navController = navController,
             destination = AUTOMAT_MENU,
-            padding = 30
+            padding = 25
         )
         BasicNextButton(
             text = "Комплексный анализ",
             navController = navController,
             destination = COMPLEX_MENU,
-            padding = 30
+            padding = 25
         )
         BasicNextButton(
             text = "Методы комплексного анализа",
             navController = navController,
             destination = METHOD_COMPLEX_MENU,
-            padding = 30
+            padding = 25
         )
         BasicNextButton(
             text = "Связаться с автором",

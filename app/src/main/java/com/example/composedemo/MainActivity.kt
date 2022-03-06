@@ -10,12 +10,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.composedemo.Navigation.ALGEBRA_MENU
+import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
 import com.example.composedemo.Navigation.MENU
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
+import com.example.composedemo.screens.compose.algebra.TicketsScreen
+import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
 import com.example.composedemo.screens.compose.menu.ResultOnboarding
 import com.example.composedemo.ui.theme.ComposeDemoTheme
@@ -40,6 +44,7 @@ class MainActivity : ComponentActivity() {
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = MENU) {
+        composable(ALGEBRA_MENU) { AlgebraMenuScreen(navController) }
         composable(MENU) { MenuScreen (navController) }
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
@@ -55,6 +60,8 @@ fun Navigation() {
                 totalAnswerCount = it.arguments?.getInt("total") ?:0,
                 correctAnswerCount =  it.arguments?.getInt("correct") ?:0,
             ) }
+        composable(ALGEBRA_TICKETS) { TicketsScreen(navController) }
+
     }
 }
 
@@ -69,16 +76,23 @@ fun DefaultPreview() {
 
 object Navigation {
     const val MENU = "menu"
-    const val THIRD_SEM_MENU = "fouth_sem_menu"
+    const val RESULT_ONBOARDING = "result_onboarding"
+    const val THIRD_SEM_MENU = "third_sem_menu"
     const val FOUTH_SEM_MENU = "fouth_sem_menu"
+    const val AUTHOR = "author"
+
+    //Алгебра
     const val ALGEBRA_MENU = "algebra_menu"
+    const val ALGEBRA_TICKETS = "algebra_tickets"
+    const val ALGEBRA_THEORY = "algebra_theory"
+
+    //Экраны тестов по алгебре по порядку
+    const val RING_DESCRIPTION = "ring_description"
+    const val RING_DESCRIPTION_QUIZ = "ring_description_quiz"
+
     const val AUTOMAT_MENU = "automat_menu"
     const val METHOD_COMPLEX_MENU = "method_complex_menu"
     const val COMPLEX_MENU = "complex_menu"
     const val DB_MENU = "db_menu"
     const val DU_MENU = "du_menu"
-    const val AUTHOR = "author"
-    const val RING_DESCRIPTION = "ring_description"
-    const val RING_DESCRIPTION_QUIZ = "ring_description_quiz"
-    const val RESULT_ONBOARDING = "result_onboarding"
 }

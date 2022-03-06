@@ -17,7 +17,6 @@ import androidx.navigation.NavController
 import com.example.composedemo.Navigation
 import com.example.composedemo.R
 
-
 /*
  * @author Yana Glad
  */
