@@ -5,6 +5,7 @@ import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +29,7 @@ import com.example.composedemo.R
 /*
  * @author Yana Glad
  */
+typealias TicketImage = R.drawable
 @Composable
 fun TicketsScreen(navController: NavController) {
     Column {
@@ -40,7 +42,7 @@ fun TicketsScreen(navController: NavController) {
                     fontSize = 30.sp,
                 )
                 Text(
-                    text = "Нажми на билет, чтобы посмотреть решение. Так же можно отфильтровать решения по номеру номера",
+                    text = "Нажми на билет, чтобы посмотреть решение. Так же можно отфильтровать решения по номеру задачи",
                     modifier = Modifier
                         .offset(y = 50.dp, x = 20.dp)
                         .width(200.dp),
@@ -70,11 +72,11 @@ fun TicketsScreen(navController: NavController) {
             SimpleButton("Номер 4")
         }
 
-        val images = listOf(R.drawable.first_algebra)
+        val images = listOf(TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra)
         val scale = listOf(remember { mutableStateOf(1f) })
 
-        var i = 0
-        Column {
+        var i = 1
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             images.forEach {
                 TicketView(it, i++)
             }
@@ -83,20 +85,20 @@ fun TicketsScreen(navController: NavController) {
 }
 
 @Composable
-private fun TicketView(number: Int, image: Int) {
-    Column {
+private fun TicketView(image: Int, number: Int) {
+    Column (horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Билет $number",
-            modifier = Modifier.offset(y = 50.dp, x = 50.dp),
+            modifier = Modifier.padding(top = 20.dp),
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
+            textAlign = TextAlign.Center
         )
         Image(
             bitmap = ImageBitmap.imageResource(image),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(400.dp)
-                .padding(top = 50.dp),
+                .height(300.dp),
             contentDescription = "ticket $number",
         )
     }
