@@ -30,6 +30,7 @@ import com.example.composedemo.R
  * @author Yana Glad
  */
 typealias TicketImage = R.drawable
+
 @Composable
 fun TicketsScreen(navController: NavController) {
     Column {
@@ -72,7 +73,10 @@ fun TicketsScreen(navController: NavController) {
             SimpleButton("Номер 4")
         }
 
-        val images = listOf(TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra)
+        val images = listOf(TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra,
+            TicketImage.fouth_algebra, TicketImage.fifth_algebra, TicketImage.sixth_algebra, TicketImage.seventh_algebra,
+            TicketImage.eighth_algebra, TicketImage.nineth_algebra, TicketImage.tenth_algebra,
+        )
         val scale = listOf(remember { mutableStateOf(1f) })
 
         var i = 1
@@ -86,7 +90,7 @@ fun TicketsScreen(navController: NavController) {
 
 @Composable
 private fun TicketView(image: Int, number: Int) {
-    Column (horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Билет $number",
             modifier = Modifier.padding(top = 20.dp),
