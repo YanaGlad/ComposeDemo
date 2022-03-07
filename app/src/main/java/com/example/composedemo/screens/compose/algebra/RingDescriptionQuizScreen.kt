@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
-import com.example.composedemo.screens.utils.ButtonUtils
-import com.example.composedemo.screens.utils.CheckBoxUtils.QuizCheckBox
-import com.example.composedemo.screens.utils.RadioButtonUtils.QuizRadioButton
+import com.example.composedemo.screens.utils.BasicNextButton
+import com.example.composedemo.screens.utils.QuizCheckBox
+import com.example.composedemo.screens.utils.QuizRadioButton
 
 /*
  * @author Yana Glad
@@ -74,7 +74,7 @@ fun RingDescribeScreenQuiz(navController: NavController) {
         )
 
         if (answered.value == 3) {
-            ButtonUtils.BasicNextButton(
+            BasicNextButton(
                 navController = navController,
                 destination = "${Navigation.RESULT_ONBOARDING}/${answered.value}/${countCorrect.value}",
                 padding = 20

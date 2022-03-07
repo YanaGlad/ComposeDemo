@@ -81,20 +81,7 @@ fun TicketsScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(400.dp)
-                        .padding(top = 50.dp)
-                        .graphicsLayer(
-                            scaleX = scale[i].value,
-                            scaleY = scale[i].value
-                        )
-                        .pointerInput(Unit) {
-                            detectTransformGestures { _, _, zoom, _ ->
-                                scale[i].value = when {
-                                    scale[i].value  < 0.5f -> 0.5f
-                                    scale[i].value  > 3f -> 3f
-                                    else ->  scale[i].value  * zoom
-                                }
-                            }
-                        },
+                        .padding(top = 50.dp),
                     contentDescription = "ticket $it",
                 )
             }

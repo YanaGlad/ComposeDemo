@@ -20,65 +20,63 @@ import com.example.composedemo.R
 /*
  * @author Yana Glad
  */
-object CheckBoxUtils {
 
-    @Composable
-    fun CheckBoxWithText(text: String, fontSize: Int, padding: Int, checkedState: MutableState<Boolean>) {
-        Row {
-            Checkbox(
-                modifier = Modifier
-                    .offset(x = 16.dp)
-                    .padding(top = 8.dp),
-                checked = checkedState.value,
-                onCheckedChange = { checkedState.value = it },
-                colors = CheckboxDefaults.colors(
-                    checkedColor = colorResource(id = R.color.purple_700),
-                    checkmarkColor = colorResource(id = R.color.answer_button_color)
-                )
-            )
-            Text(
-                text = text,
-                fontSize = fontSize.sp,
-                modifier = Modifier
-                    .offset(x = 18.dp)
-                    .padding(top = padding.dp),
-            )
-        }
-    }
-
-    @Composable
-    fun QuizCheckBox(
-        quizTitle: String, countCheckBox: Int, listOfNames: List<String>,
-        correctIndexes: List<Int>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {}, onFinally: () -> Unit = {},
-    ) {
-        Text(
-            text = quizTitle,
+@Composable
+fun CheckBoxWithText(text: String, fontSize: Int, padding: Int, checkedState: MutableState<Boolean>) {
+    Row {
+        Checkbox(
             modifier = Modifier
                 .offset(x = 16.dp)
-                .padding(top = 14.dp),
-            fontSize = 16.sp,
+                .padding(top = 8.dp),
+            checked = checkedState.value,
+            onCheckedChange = { checkedState.value = it },
+            colors = CheckboxDefaults.colors(
+                checkedColor = colorResource(id = R.color.purple_700),
+                checkmarkColor = colorResource(id = R.color.answer_button_color)
+            )
         )
-
-        val checkStates = arrayListOf<MutableState<Boolean>>()
-
-        for (i in 0..countCheckBox) {
-            checkStates.add(remember { mutableStateOf(false) })
-        }
-
-        for (i in 0 until countCheckBox) {
-            CheckBoxWithText(listOfNames[i], 16, 8, checkStates[i])
-        }
-
-        var condition = true
-        for (index in 0 until countCheckBox) {
-            if (index !in correctIndexes && checkStates[index].value) condition = false
-            if (index in correctIndexes && !checkStates[index].value) condition = false
-        }
-        ButtonUtils.AnswerButton(
-            condition = condition,
-            onSuccess = onSuccess,
-            onFail = onFail,
-            onFinally = onFinally
+        Text(
+            text = text,
+            fontSize = fontSize.sp,
+            modifier = Modifier
+                .offset(x = 18.dp)
+                .padding(top = padding.dp),
         )
     }
+}
+
+@Composable
+fun QuizCheckBox(
+    quizTitle: String, countCheckBox: Int, listOfNames: List<String>,
+    correctIndexes: List<Int>, onSuccess: () -> Unit = {}, onFail: () -> Unit = {}, onFinally: () -> Unit = {},
+) {
+    Text(
+        text = quizTitle,
+        modifier = Modifier
+            .offset(x = 16.dp)
+            .padding(top = 14.dp),
+        fontSize = 16.sp,
+    )
+
+    val checkStates = arrayListOf<MutableState<Boolean>>()
+
+    for (i in 0..countCheckBox) {
+        checkStates.add(remember { mutableStateOf(false) })
+    }
+
+    for (i in 0 until countCheckBox) {
+        CheckBoxWithText(listOfNames[i], 16, 8, checkStates[i])
+    }
+
+    var condition = true
+    for (index in 0 until countCheckBox) {
+        if (index !in correctIndexes && checkStates[index].value) condition = false
+        if (index in correctIndexes && !checkStates[index].value) condition = false
+    }
+    AnswerButton(
+        condition = condition,
+        onSuccess = onSuccess,
+        onFail = onFail,
+        onFinally = onFinally
+    )
 }
