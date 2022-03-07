@@ -76,18 +76,29 @@ fun TicketsScreen(navController: NavController) {
         var i = 0
         Column {
             images.forEach {
-                Image(
-                    bitmap = ImageBitmap.imageResource(it),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(400.dp)
-                        .padding(top = 50.dp),
-                    contentDescription = "ticket $it",
-                )
+                TicketView(it, i++)
             }
-            // TODO адрес картинок
-            // Через for each. Создать сущность проверки номера
         }
+    }
+}
+
+@Composable
+private fun TicketView(number: Int, image: Int) {
+    Column {
+        Text(
+            text = "Билет $number",
+            modifier = Modifier.offset(y = 50.dp, x = 50.dp),
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+        )
+        Image(
+            bitmap = ImageBitmap.imageResource(image),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(400.dp)
+                .padding(top = 50.dp),
+            contentDescription = "ticket $number",
+        )
     }
 }
 

@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
-import com.example.composedemo.screens.utils.ButtonUtils.BasicNextButton
+import com.example.composedemo.screens.utils.BasicNextButton
 
 /*
  * @author Yana Glad
