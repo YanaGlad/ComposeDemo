@@ -9,6 +9,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -23,6 +25,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.composedemo.R
 
@@ -73,7 +78,8 @@ fun TicketsScreen(navController: NavController) {
             SimpleButton("Номер 4")
         }
 
-        val images = listOf(TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra,
+        val images = listOf(
+            TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra,
             TicketImage.fouth_algebra, TicketImage.fifth_algebra, TicketImage.sixth_algebra, TicketImage.seventh_algebra,
             TicketImage.eighth_algebra, TicketImage.nineth_algebra, TicketImage.tenth_algebra,
         )

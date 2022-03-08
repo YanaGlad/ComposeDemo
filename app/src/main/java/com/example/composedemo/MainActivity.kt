@@ -3,9 +3,18 @@ package com.example.composedemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -37,7 +46,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeDemoTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    Navigation()
+                   // Counter()
+                   Navigation()
                 }
             }
         }
@@ -49,7 +59,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = MENU) {
         composable(ALGEBRA_MENU) { AlgebraMenuScreen(navController) }
-        composable(MENU) { MenuScreen (navController) }
+        composable(MENU) { MenuScreen(navController) }
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
         composable(
@@ -61,12 +71,13 @@ fun Navigation() {
         ) {
             ResultOnboarding(
                 navController = navController,
-                totalAnswerCount = it.arguments?.getInt("total") ?:0,
-                correctAnswerCount =  it.arguments?.getInt("correct") ?:0,
-            ) }
+                totalAnswerCount = it.arguments?.getInt("total") ?: 0,
+                correctAnswerCount = it.arguments?.getInt("correct") ?: 0,
+            )
+        }
         composable(ALGEBRA_TICKETS) { TicketsScreen(navController) }
-        composable(ALGEBRA_THEORY) { TheoryScreen (navController) }
-        composable(IN_DEV) { InTheDevelopmentScreen (navController) }
+        composable(ALGEBRA_THEORY) { TheoryScreen(navController) }
+        composable(IN_DEV) { InTheDevelopmentScreen(navController) }
     }
 }
 

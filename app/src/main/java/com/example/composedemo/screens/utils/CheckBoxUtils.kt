@@ -52,6 +52,7 @@ fun QuizCheckBox(
 ) {
     Text(
         text = quizTitle,
+
         modifier = Modifier
             .offset(x = 16.dp)
             .padding(top = 14.dp),
