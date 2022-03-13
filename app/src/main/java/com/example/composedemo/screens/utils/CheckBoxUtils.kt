@@ -20,7 +20,6 @@ import com.example.composedemo.R
 /*
  * @author Yana Glad
  */
-
 @Composable
 fun CheckBoxWithText(text: String, fontSize: Int, padding: Int, checkedState: MutableState<Boolean>) {
     Row {

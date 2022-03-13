@@ -1,11 +1,9 @@
 package com.example.composedemo.screens.compose.algebra
 
-import androidx.compose.foundation.Image
+import androidx.activity.OnBackPressedCallback
+import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.detectTransformGestures
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +18,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -29,7 +28,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.R
+import com.example.composedemo.screens.utils.ZoomableImage
 
 /*
  * @author Yana Glad
@@ -88,15 +89,16 @@ fun TicketsScreen(navController: NavController) {
         var i = 1
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             images.forEach {
-                TicketView(it, i++)
+                TicketView(navController = navController, image = it, number = i++)
             }
         }
     }
 }
 
 @Composable
-private fun TicketView(image: Int, number: Int) {
+private fun TicketView(navController: NavController, image: Int, number: Int) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
         Text(
             text = "Билет $number",
             modifier = Modifier.padding(top = 20.dp),
@@ -104,13 +106,25 @@ private fun TicketView(image: Int, number: Int) {
             fontSize = 24.sp,
             textAlign = TextAlign.Center
         )
-        Image(
-            bitmap = ImageBitmap.imageResource(image),
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp),
-            contentDescription = "ticket $number",
-        )
+                .height(300.dp)
+                .clickable(
+                    enabled = true,
+                    onClick = {
+                        navController.navigate("${Navigation.IMAGE_VIEWER}/$image/${Navigation.ALGEBRA_TICKETS}")
+                    }
+                ),
+            ) {
+            Image(
+                bitmap = ImageBitmap.imageResource(image),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp),
+                contentDescription = "ticket $number",
+            )
+        }
     }
 }
 

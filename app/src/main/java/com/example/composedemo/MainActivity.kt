@@ -22,6 +22,7 @@ import androidx.navigation.navArgument
 import com.example.composedemo.Navigation.ALGEBRA_MENU
 import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
+import com.example.composedemo.Navigation.IMAGE_VIEWER
 import com.example.composedemo.screens.compose.algebra.TheoryScreen
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.RING_DESCRIPTION
@@ -35,6 +36,7 @@ import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
 import com.example.composedemo.screens.compose.menu.ResultOnboarding
+import com.example.composedemo.screens.utils.ImageViewer
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 /*
@@ -46,8 +48,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeDemoTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                   // Counter()
-                   Navigation()
+                    // Counter()
+                    Navigation()
                 }
             }
         }
@@ -78,6 +80,17 @@ fun Navigation() {
         composable(ALGEBRA_TICKETS) { TicketsScreen(navController) }
         composable(ALGEBRA_THEORY) { TheoryScreen(navController) }
         composable(IN_DEV) { InTheDevelopmentScreen(navController) }
+
+        composable("$IMAGE_VIEWER/{image}/{destination}",
+            arguments = listOf(
+                navArgument("image") { defaultValue = R.drawable.algebra },
+                navArgument("destination") { defaultValue = MENU },
+            )
+        ) {
+            ImageViewer(navController = navController,
+                destination = it.arguments?.getString("destination") ?: MENU,
+                image = it.arguments?.getInt("image") ?: R.drawable.algebra)
+        }
     }
 }
 
@@ -88,6 +101,7 @@ object Navigation {
     const val FOUTH_SEM_MENU = "fouth_sem_menu"
     const val AUTHOR = "author"
     const val IN_DEV = "in_dev"
+    const val IMAGE_VIEWER = "image_viewer"
 
     //Алгебра
     const val ALGEBRA_MENU = "algebra_menu"

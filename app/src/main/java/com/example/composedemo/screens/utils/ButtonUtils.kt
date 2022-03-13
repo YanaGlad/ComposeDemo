@@ -21,7 +21,6 @@ import com.example.composedemo.R
 /*
  * @author Yana Glad
  */
-
 @Composable
 fun BasicNextButton(navController: NavController, destination: String, padding: Int = 50, text: String = "Дальше") {
     Button(
