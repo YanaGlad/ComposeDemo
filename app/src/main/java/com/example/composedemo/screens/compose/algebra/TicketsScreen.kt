@@ -82,9 +82,14 @@ fun TicketsScreen(navController: NavController) {
         val images = listOf(
             TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra,
             TicketImage.fouth_algebra, TicketImage.fifth_algebra, TicketImage.sixth_algebra, TicketImage.seventh_algebra,
-            TicketImage.eighth_algebra, TicketImage.nineth_algebra, TicketImage.tenth_algebra,
-        )
-        val scale = listOf(remember { mutableStateOf(1f) })
+            TicketImage.eighth_algebra, TicketImage.nineth_algebra, TicketImage.tenth_algebra, TicketImage.eleventh_algebra,
+            TicketImage.twelvth_alebra, TicketImage.thirteenth_algebra, TicketImage.fourteenth_algebra,
+            TicketImage.fifteenth_algebra, TicketImage.sixteenth_algebra, TicketImage.seventeenth_algebra,
+            TicketImage.eighteenth_algebra, TicketImage.nineteenth_algebra, TicketImage.twentieth_algebra,
+            TicketImage.twentyfifth_algebra, TicketImage.twentysecond_algebra, TicketImage.twentythird_algebra,
+            TicketImage.twentyfouth_algebra, TicketImage.twentyfifth_algebra, TicketImage.twentysixth_algebra,
+            TicketImage.twentyseventh_algebra, TicketImage.twentyeighth_algebra, TicketImage.twentynineth_algebra,
+            )
 
         var i = 1
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
@@ -116,7 +121,7 @@ private fun TicketView(navController: NavController, image: Int, number: Int) {
                         navController.navigate("${Navigation.IMAGE_VIEWER}/$image/${Navigation.ALGEBRA_TICKETS}")
                     }
                 ),
-            ) {
+        ) {
             Image(
                 bitmap = ImageBitmap.imageResource(image),
                 modifier = Modifier
