@@ -21,7 +21,7 @@ import com.example.composedemo.R
  * @author Yana Glad
  */
 @Composable
-fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correctAnswerCount: Int) {
+fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correctAnswerCount: Int, next: String) {
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -46,7 +46,7 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
             textAlign = TextAlign.Center
         )
 
-        Row (modifier = Modifier.padding(top = 50.dp)){
+        Row(modifier = Modifier.padding(top = 50.dp)) {
             Column {
                 Box(
                     modifier = Modifier
@@ -77,7 +77,7 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                     modifier = Modifier
                         .clickable(
                             enabled = true,
-                            onClick = { }
+                            onClick = { navController.navigate(next) }
                         )
                         .align(alignment = Alignment.CenterHorizontally)
                 ) {

@@ -23,15 +23,13 @@ import com.example.composedemo.Navigation.ALGEBRA_MENU
 import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.Navigation.IMAGE_VIEWER
-import com.example.composedemo.screens.compose.algebra.TheoryScreen
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
 import com.example.composedemo.Navigation.MENU
-import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
-import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
-import com.example.composedemo.screens.compose.algebra.TicketsScreen
+import com.example.composedemo.Navigation.RING_MODULES
+import com.example.composedemo.screens.compose.algebra.*
 import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
@@ -65,16 +63,18 @@ fun Navigation() {
         composable(RING_DESCRIPTION) { RingDescribeScreenFirst(navController) }
         composable(RING_DESCRIPTION_QUIZ) { RingDescribeScreenQuiz(navController) }
         composable(
-            "$RESULT_ONBOARDING/{total}/{correct}",
+            "$RESULT_ONBOARDING/{total}/{correct}/{next}",
             arguments = listOf(
                 navArgument("total") { defaultValue = 1 },
-                navArgument("correct") { defaultValue = 0 }
+                navArgument("correct") { defaultValue = 0 },
+                navArgument("next") { defaultValue = RING_MODULES },
             )
         ) {
             ResultOnboarding(
                 navController = navController,
                 totalAnswerCount = it.arguments?.getInt("total") ?: 0,
                 correctAnswerCount = it.arguments?.getInt("correct") ?: 0,
+                next = it.arguments?.getString("next") ?: RING_MODULES,
             )
         }
         composable(ALGEBRA_TICKETS) { TicketsScreen(navController) }
@@ -91,6 +91,7 @@ fun Navigation() {
                 destination = it.arguments?.getString("destination") ?: MENU,
                 image = it.arguments?.getInt("image") ?: R.drawable.algebra)
         }
+        composable(RING_MODULES) { RingModulesDescriptionScreen(navController) }
     }
 }
 
@@ -111,6 +112,8 @@ object Navigation {
     //Экраны тестов по алгебре по порядку
     const val RING_DESCRIPTION = "ring_description"
     const val RING_DESCRIPTION_QUIZ = "ring_description_quiz"
+    const val RING_MODULES = "ring_module"
+    const val RING_MODULES_QUIZ = "ring_module_quiz"
 
     const val AUTOMAT_MENU = "automat_menu"
     const val METHOD_COMPLEX_MENU = "method_complex_menu"

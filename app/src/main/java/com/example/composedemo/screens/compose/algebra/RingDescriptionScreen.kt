@@ -90,7 +90,14 @@ fun RingDescribeScreenFirst(navController: NavController) {
         )
 
         Text(
-            text = stringResource(R.string.netural_element),
+            text = stringResource(R.string.netural_element) + "\n",
+            modifier = Modifier
+                .offset(y = 35.dp, x = 8.dp)
+                .padding(end = 8.dp)
+        )
+
+        Text(
+            text = "Множество обратимых элементов обычно обозначается К* \n",
             modifier = Modifier
                 .offset(y = 35.dp, x = 8.dp)
                 .padding(end = 8.dp)

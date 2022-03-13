@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.RING_MODULES
 import com.example.composedemo.screens.utils.BasicNextButton
 import com.example.composedemo.screens.utils.QuizCheckBox
 import com.example.composedemo.screens.utils.QuizRadioButton
@@ -79,7 +80,7 @@ fun RingDescribeScreenQuiz(navController: NavController) {
         if (answered.value == 3) {
             BasicNextButton(
                 navController = navController,
-                destination = "${Navigation.RESULT_ONBOARDING}/${answered.value}/${countCorrect.value}",
+                destination = "${Navigation.RESULT_ONBOARDING}/${answered.value}/${countCorrect.value}/${RING_MODULES}",
                 padding = 20
             )
         }
