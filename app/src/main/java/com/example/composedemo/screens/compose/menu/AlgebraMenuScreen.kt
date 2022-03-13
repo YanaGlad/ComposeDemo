@@ -47,6 +47,12 @@ fun AlgebraMenuScreen(navController: NavController) {
             destination = Navigation.RING_DESCRIPTION,
             padding = 25
         )
+        BasicNextButton(
+            text = "Список вопросов к экзамену",
+            navController = navController,
+            destination = "${Navigation.IMAGE_VIEWER}/${R.drawable.twentynineth_algebra}/${Navigation.ALGEBRA_MENU}",
+            padding = 25
+        )
 
         BasicNextButton(
             text = "Теория",
