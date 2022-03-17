@@ -84,7 +84,7 @@ fun RingModulesDescriptionScreen(navController: NavController) {
         Text(
             text = "Гомоморфизм колец – это гомоморфизм подлежащих абелевых групп, согласованный\n" +
                     " с умножением, \n т.е. f : R → S – гомомрфизм колец, если\n" +
-                    " f(a + b) = f(a) + f(b), f(ab) = f(a)f(b) ∀ a, b ∈ R.",
+                    " ёf(a + b) = f(a) + f(b), f(ab) = f(a)f(b) ∀ a, b ∈ R.",
             modifier = Modifier
                 .offset(y = 35.dp, x = 8.dp)
                 .padding(end = 8.dp)
