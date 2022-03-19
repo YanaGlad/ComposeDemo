@@ -3,18 +3,16 @@ package com.example.composedemo.screens.compose.menu
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -31,7 +29,8 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -45,7 +44,7 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
         )
 
         Text(
-            modifier = Modifier.offset(y = 16.dp),
+            modifier = Modifier.padding(top = 16.dp),
             text = "Тест пройден, правильно $correctAnswerCount/$totalAnswerCount",
             fontWeight = FontWeight.Bold,
             fontSize = 30.sp,
@@ -69,7 +68,9 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                     )
                 }
                 Text(
-                    modifier = Modifier.offset(y = 16.dp, x = (-35).dp),
+                    modifier = Modifier
+                        .padding(top = 16.dp)
+                        .offset(x = (-30).dp),
                     text = "Домашнаяя страница",
                     fontSize = 18.sp,
                     textAlign = TextAlign.Start
@@ -94,7 +95,9 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                     )
                 }
                 Text(
-                    modifier = Modifier.offset(y = 16.dp, x = 27.dp),
+                    modifier = Modifier
+                        .padding(top = 16.dp)
+                        .offset(x = 27.dp),
                     text = "Дальше",
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center
