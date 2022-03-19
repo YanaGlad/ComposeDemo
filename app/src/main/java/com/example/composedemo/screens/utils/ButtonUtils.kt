@@ -1,17 +1,19 @@
 package com.example.composedemo.screens.utils
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ExtendedFloatingActionButton
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -84,6 +86,35 @@ fun AnswerButton(condition: Boolean, onSuccess: () -> Unit = {}, onFail: () -> U
             text = if (check.value) "Верно" else "Не верно",
             fontSize = 20.sp,
             color = if (check.value) colorResource(R.color.green_correct) else Color.Red,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Composable
+fun RoundedImageButton(icon: Int, onClick: () -> Unit) {
+    Column {
+        Card(
+            shape = RoundedCornerShape(70.dp),
+            modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally),
+        ) {
+            Image(
+                imageVector = ImageVector.vectorResource(icon),
+                modifier = Modifier
+                    .width(125.dp)
+                    .height(125.dp)
+                    .clickable(
+                        enabled = true,
+                        onClick = { onClick() },
+                    ),
+                contentDescription = "Go home",
+            )
+        }
+        Text(
+            modifier = Modifier.offset(y = 16.dp, x = 27.dp),
+            text = "Дальше",
+            fontSize = 18.sp,
             textAlign = TextAlign.Center
         )
     }
