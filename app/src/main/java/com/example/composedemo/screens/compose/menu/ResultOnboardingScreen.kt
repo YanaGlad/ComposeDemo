@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
 import com.example.composedemo.R
-import com.example.composedemo.screens.utils.RoundedImageButton
 
 /*
  * @author Yana Glad
@@ -54,9 +53,53 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
         )
 
         Row(modifier = Modifier.padding(top = 50.dp)) {
-            RoundedImageButton(icon = R.drawable.ic_space_earth) { navController.navigate(Navigation.MENU) }
-            RoundedImageButton(icon = R.drawable.ic_next) { navController.navigate(next) }
+            Column {
+                Card(shape = RoundedCornerShape(70.dp)) {
+                    Image(
+                        imageVector = ImageVector.vectorResource(R.drawable.ic_space_earth),
+                        modifier = Modifier
+                            .width(125.dp)
+                            .height(125.dp)
+                            .clickable(
+                                enabled = true,
+                                onClick = { navController.navigate(Navigation.MENU) }
+                            ),
+                        contentDescription = "Go home",
+                        alignment = Alignment.Center
+                    )
+                }
+                Text(
+                    modifier = Modifier.offset(y = 16.dp, x = (-35).dp),
+                    text = "Домашнаяя страница",
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Start
+                )
+            }
+
+            Column {
+                Card(
+                    shape = RoundedCornerShape(70.dp),
+                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                ) {
+                    Image(
+                        imageVector = ImageVector.vectorResource(R.drawable.ic_next),
+                        modifier = Modifier
+                            .width(125.dp)
+                            .height(125.dp)
+                            .clickable(
+                                enabled = true,
+                                onClick = { navController.navigate(next) },
+                            ),
+                        contentDescription = "Go home",
+                    )
+                }
+                Text(
+                    modifier = Modifier.offset(y = 16.dp, x = 27.dp),
+                    text = "Дальше",
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 }
-
