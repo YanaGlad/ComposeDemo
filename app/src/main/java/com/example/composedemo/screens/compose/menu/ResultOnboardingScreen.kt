@@ -42,7 +42,6 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                 .padding(top = 50.dp),
             contentDescription = "Finish",
         )
-
         Text(
             modifier = Modifier.padding(top = 16.dp),
             text = "Тест пройден, правильно $correctAnswerCount/$totalAnswerCount",
@@ -76,7 +75,6 @@ fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correc
                     textAlign = TextAlign.Start
                 )
             }
-
             Column {
                 Card(
                     shape = RoundedCornerShape(70.dp),
