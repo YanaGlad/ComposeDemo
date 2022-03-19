@@ -2,13 +2,16 @@ package com.example.composedemo.screens.compose.algebra
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
@@ -76,7 +79,7 @@ fun TicketsScreen(navController: NavController) {
             TicketImage.twentyfifth_algebra, TicketImage.twentysecond_algebra, TicketImage.twentythird_algebra,
             TicketImage.twentyfouth_algebra, TicketImage.twentyfifth_algebra, TicketImage.twentysixth_algebra,
             TicketImage.twentyseventh_algebra, TicketImage.twentyeighth_algebra, TicketImage.twentynineth_algebra,
-            )
+        )
 
         var i = 1
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
@@ -102,12 +105,6 @@ private fun TicketView(navController: NavController, image: Int, number: Int) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(300.dp)
-                .clickable(
-                    enabled = true,
-                    onClick = {
-                        navController.navigate("${Navigation.IMAGE_VIEWER}/$image/${Navigation.ALGEBRA_TICKETS}")
-                    }
-                ),
         ) {
             Image(
                 bitmap = ImageBitmap.imageResource(image),
@@ -116,6 +113,29 @@ private fun TicketView(navController: NavController, image: Int, number: Int) {
                     .height(300.dp),
                 contentDescription = "ticket $number",
             )
+            Card(
+                shape = RoundedCornerShape(30.dp),
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .width(60.dp)
+                    .height(60.dp),
+            ) {
+                Image(
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_magnifier),
+                    modifier = Modifier
+                        .width(60.dp)
+                        .height(60.dp)
+                        .clickable(
+                            enabled = true,
+                            onClick = {
+                                navController.navigate("${Navigation.IMAGE_VIEWER}/$image/${Navigation.ALGEBRA_TICKETS}")
+                            }
+                        ),
+                    contentScale = ContentScale.Fit,
+                    contentDescription = "Magnifier",
+                    alignment = Alignment.TopEnd,
+                )
+            }
         }
     }
 }
