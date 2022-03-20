@@ -12,7 +12,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.ALGEBRA_QUESTION_LIST
+import com.example.composedemo.Navigation.ALGEBRA_THEORY
+import com.example.composedemo.Navigation.ALGEBRA_TICKETS
+import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
@@ -44,27 +47,27 @@ fun AlgebraMenuScreen(navController: NavController) {
         BasicNextButton(
             text = "Подготовка за час",
             navController = navController,
-            destination = Navigation.RING_DESCRIPTION,
+            destination = RING_DESCRIPTION,
             padding = 25
         )
         BasicNextButton(
             text = "Список вопросов к экзамену",
             navController = navController,
-            destination = "${Navigation.IMAGE_VIEWER}/${R.drawable.twentynineth_algebra}/${Navigation.ALGEBRA_MENU}",
+            destination = ALGEBRA_QUESTION_LIST,
             padding = 25
         )
 
         BasicNextButton(
             text = "Теория",
             navController = navController,
-            destination = Navigation.ALGEBRA_THEORY,
+            destination = ALGEBRA_THEORY,
             padding = 25
         )
 
         BasicNextButton(
             text = "Билеты с решениями",
             navController = navController,
-            destination = Navigation.ALGEBRA_TICKETS,
+            destination = ALGEBRA_TICKETS,
             padding = 25
         )
     }

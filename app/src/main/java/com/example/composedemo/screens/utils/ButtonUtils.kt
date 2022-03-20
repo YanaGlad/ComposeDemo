@@ -1,13 +1,16 @@
 package com.example.composedemo.screens.utils
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,6 +42,47 @@ fun BasicNextButton(navController: NavController, destination: String, padding: 
             fontSize = 20.sp,
             color = Color.White
         )
+    }
+}
+
+@Composable
+fun ButtonExtendableAnswer(text: String, answerText: String, padding: Int = 20) {
+    var isExpanded by remember { mutableStateOf(false) }
+
+    Column(modifier = Modifier.animateContentSize(
+        animationSpec = tween(
+            durationMillis = 500,
+            easing = LinearOutSlowInEasing
+        )
+    )) {
+        Box(
+            modifier = Modifier
+                .padding(padding.dp)
+                .fillMaxWidth()
+                .border(
+                    border = BorderStroke(5.dp, colorResource(id = R.color.answer_button_color)),
+                    shape = RoundedCornerShape(15f)
+                )
+                .clickable(
+                    onClick = { isExpanded = !isExpanded }
+                ),
+        ) {
+            Text(
+                text = text,
+                fontSize = 12.sp,
+                color = Color.Black,
+                modifier = Modifier.padding(padding.dp)
+            )
+
+        }
+        if (isExpanded) {
+            Text(
+                text = answerText,
+                fontSize = 12.sp,
+                color = Color.Black,
+                modifier = Modifier.padding(padding.dp)
+            )
+        }
     }
 }
 

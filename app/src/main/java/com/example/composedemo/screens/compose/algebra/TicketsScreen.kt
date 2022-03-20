@@ -110,7 +110,8 @@ private fun TicketView(navController: NavController, image: Int, number: Int) {
                 bitmap = ImageBitmap.imageResource(image),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp),
+                    .height(300.dp)
+                    .padding(top = 50.dp),
                 contentDescription = "ticket $number",
             )
             Card(

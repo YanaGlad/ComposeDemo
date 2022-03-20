@@ -3,23 +3,14 @@ package com.example.composedemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.composedemo.Navigation.ALGEBRA_MENU
+import com.example.composedemo.Navigation.ALGEBRA_QUESTION_LIST
 import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.Navigation.IMAGE_VIEWER
@@ -92,6 +83,7 @@ fun Navigation() {
                 image = it.arguments?.getInt("image") ?: R.drawable.algebra)
         }
         composable(RING_MODULES) { RingModulesDescriptionScreen(navController) }
+        composable(ALGEBRA_QUESTION_LIST) { AlgebraQuestionsList(navController) }
     }
 }
 
@@ -108,6 +100,7 @@ object Navigation {
     const val ALGEBRA_MENU = "algebra_menu"
     const val ALGEBRA_TICKETS = "algebra_tickets"
     const val ALGEBRA_THEORY = "algebra_theory"
+    const val ALGEBRA_QUESTION_LIST = "algebra_question_list"
 
     //Экраны тестов по алгебре по порядку
     const val RING_DESCRIPTION = "ring_description"
