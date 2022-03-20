@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -30,19 +31,34 @@ import org.intellij.lang.annotations.JdkConstants
  */
 @Composable
 fun BasicNextButton(navController: NavController, destination: String, padding: Int = 50, text: String = "Дальше") {
-    Button(
+    ExtendedFloatingActionButton(
         onClick = { navController.navigate(destination) },
         modifier = Modifier
             .padding(top = padding.dp)
             .fillMaxWidth(),
-        colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(R.color.purple_700), contentColor = Color.Black)
-    ) {
-        Text(
-            text = text,
-            fontSize = 20.sp,
-            color = Color.White
-        )
-    }
+
+        backgroundColor = colorResource(R.color.purple_700),
+        text = {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = text,
+                    fontSize = 16.sp,
+                    color = Color.White,
+                    modifier = Modifier.weight(5f),
+                )
+                Image(
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_right),
+                    modifier = Modifier
+                        .width(20.dp)
+                        .height(20.dp)
+                        .weight(1f)
+                        .align(CenterVertically),
+                    contentDescription = "App theme",
+                    alignment = Alignment.CenterEnd,
+                )
+            }
+        }
+    )
 }
 
 @Composable

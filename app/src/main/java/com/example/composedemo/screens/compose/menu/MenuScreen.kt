@@ -27,7 +27,8 @@ import com.example.composedemo.screens.utils.BasicNextButton
 fun MenuScreen(navController: NavController) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
+            .padding(10.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
