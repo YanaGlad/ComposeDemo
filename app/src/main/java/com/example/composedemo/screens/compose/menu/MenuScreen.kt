@@ -28,7 +28,6 @@ fun MenuScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(10.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -58,31 +57,31 @@ fun MenuScreen(navController: NavController) {
             text = "Алгебра и геометрия",
             navController = navController,
             destination = ALGEBRA_MENU,
-            padding = 25
+            padding = 5
         )
         BasicNextButton(
             text = "Автоматы и алгоритмы",
             navController = navController,
             destination = IN_DEV,
-            padding = 25
+            padding = 5
         )
         BasicNextButton(
             text = "Комплексный анализ",
             navController = navController,
             destination = IN_DEV,
-            padding = 25
+            padding = 5
         )
         BasicNextButton(
             text = "Методы комплексного анализа",
             navController = navController,
             destination = IN_DEV,
-            padding = 25
+            padding = 5
         )
         BasicNextButton(
             text = "Связаться с автором",
             navController = navController,
             destination = IN_DEV,
-            padding = 30
+            padding = 10
         )
     }
 }

@@ -48,27 +48,27 @@ fun AlgebraMenuScreen(navController: NavController) {
             text = "Подготовка за час",
             navController = navController,
             destination = RING_DESCRIPTION,
-            padding = 25
+            padding = 5
         )
         BasicNextButton(
             text = "Список вопросов к экзамену",
             navController = navController,
             destination = ALGEBRA_QUESTION_LIST,
-            padding = 25
+            padding = 5
         )
 
         BasicNextButton(
             text = "Теория",
             navController = navController,
             destination = ALGEBRA_THEORY,
-            padding = 25
+            padding = 5
         )
 
         BasicNextButton(
             text = "Билеты с решениями",
             navController = navController,
             destination = ALGEBRA_TICKETS,
-            padding = 25
+            padding = 5
         )
     }
 }

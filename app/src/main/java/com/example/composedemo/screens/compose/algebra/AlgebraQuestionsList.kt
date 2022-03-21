@@ -21,8 +21,7 @@ import com.example.composedemo.screens.utils.ButtonExtendableAnswer
 @Composable
 fun AlgebraQuestionsList(navController: NavController) {
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        Row(modifier = Modifier
-            .align(Alignment.Start)) {
+        Row(modifier = Modifier.align(Alignment.Start)) {
 
             Column(modifier = Modifier.weight(2.5f)) {
                 Text(

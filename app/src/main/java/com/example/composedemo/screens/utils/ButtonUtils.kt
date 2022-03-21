@@ -34,6 +34,7 @@ fun BasicNextButton(navController: NavController, destination: String, padding: 
     ExtendedFloatingActionButton(
         onClick = { navController.navigate(destination) },
         modifier = Modifier
+            .padding(10.dp)
             .padding(top = padding.dp)
             .fillMaxWidth(),
 
@@ -62,7 +63,7 @@ fun BasicNextButton(navController: NavController, destination: String, padding: 
 }
 
 @Composable
-fun ButtonExtendableAnswer(text: String, answerText: String, padding: Int = 20) {
+fun ButtonExtendableAnswer(text: String, answerText: String, padding: Int = 10) {
     var isExpanded by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.animateContentSize(
