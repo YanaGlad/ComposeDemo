@@ -27,7 +27,9 @@ fun RingModulesDescriptionScreen(navController: NavController) {
         .verticalScroll(rememberScrollState())) {
 
         Text(
-            modifier = Modifier.offset(y = 30.dp).fillMaxWidth(),
+            modifier = Modifier
+                .offset(y = 30.dp)
+                .fillMaxWidth(),
             text = "Тело, поле, идеал",
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
@@ -74,7 +76,9 @@ fun RingModulesDescriptionScreen(navController: NavController) {
         )
 
         Text(
-            modifier = Modifier.offset(y = 30.dp).fillMaxWidth(),
+            modifier = Modifier
+                .offset(y = 30.dp)
+                .fillMaxWidth(),
             text = "Гомоморфизм колец",
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,

@@ -45,7 +45,6 @@ fun ImageViewer(navController: NavController, destination: String, image: Int) {
                     contentDescription = "Finish",
                 )
             }
-
             ZoomableImage(
                 painter = painterResource(id = image),
                 isRotation = false,

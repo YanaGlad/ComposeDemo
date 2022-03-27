@@ -83,7 +83,7 @@ fun Navigation() {
                 image = it.arguments?.getInt("image") ?: R.drawable.algebra)
         }
         composable(RING_MODULES) { RingModulesDescriptionScreen(navController) }
-        composable(ALGEBRA_QUESTION_LIST) { AlgebraQuestionsList(navController) }
+        composable(ALGEBRA_QUESTION_LIST) { AlgebraQuestionsList() }
     }
 }
 

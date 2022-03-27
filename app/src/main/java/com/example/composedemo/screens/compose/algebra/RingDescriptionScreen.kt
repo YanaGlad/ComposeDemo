@@ -48,14 +48,12 @@ fun RingDescribeScreenFirst(navController: NavController) {
                 .offset(y = 16.dp, x = 8.dp)
                 .padding(end = 8.dp)
         )
-
         Text(
             text = "Кольцо ассоциативно, если операция умножения ассоциативна a(bc) = (ab)c",
             modifier = Modifier
                 .offset(y = 16.dp, x = 8.dp)
                 .padding(end = 8.dp)
         )
-
         Image(
             bitmap = ImageBitmap.imageResource(R.drawable.algebra),
             contentDescription = "Примеры колец",

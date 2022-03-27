@@ -49,7 +49,6 @@ fun QuizRadioButton(
             .padding(top = 14.dp, bottom = 20.dp),
         fontSize = 16.sp,
     )
-
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(listOfAnswers[0]) }
 
     Column(Modifier.selectableGroup()) {
@@ -75,7 +74,6 @@ fun QuizRadioButton(
             }
         }
     }
-
     AnswerButton(
         condition = selectedOption == condition,
         onSuccess = onSuccess,

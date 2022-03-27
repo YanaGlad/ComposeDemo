@@ -19,7 +19,7 @@ import com.example.composedemo.R
 import com.example.composedemo.screens.utils.ButtonExtendableAnswer
 
 @Composable
-fun AlgebraQuestionsList(navController: NavController) {
+fun AlgebraQuestionsList() {
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         Row(modifier = Modifier.align(Alignment.Start)) {
 
