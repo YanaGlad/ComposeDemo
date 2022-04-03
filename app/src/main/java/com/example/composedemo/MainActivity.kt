@@ -3,7 +3,8 @@ package com.example.composedemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,7 +21,12 @@ import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
 import com.example.composedemo.Navigation.MENU
 import com.example.composedemo.Navigation.RING_MODULES
-import com.example.composedemo.screens.compose.algebra.*
+import com.example.composedemo.screens.compose.algebra.AlgebraQuestionsList
+import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
+import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
+import com.example.composedemo.screens.compose.algebra.RingModulesDescriptionScreen
+import com.example.composedemo.screens.compose.algebra.TheoryScreen
+import com.example.composedemo.screens.compose.algebra.TicketsScreen
 import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
