@@ -35,7 +35,7 @@ fun AutomatMenu(navController: NavController) {
                 fontSize = 30.sp,
             )
             Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_alien),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_robot),
                 modifier = Modifier
                     .width(200.dp)
                     .height(200.dp)

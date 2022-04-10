@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -30,12 +31,13 @@ fun MethodComplexAScreen(navController: NavController) {
         Row(modifier = Modifier.align(Alignment.End)) {
             Text(
                 text = "Методы комплексного анализа",
-                modifier = Modifier.offset(y = 95.dp),
+                modifier = Modifier.offset(x= 5.dp, y = 70.dp).width(300.dp),
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 fontSize = 30.sp,
             )
             Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_alien),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_planet_saturn),
                 modifier = Modifier
                     .width(200.dp)
                     .height(200.dp)

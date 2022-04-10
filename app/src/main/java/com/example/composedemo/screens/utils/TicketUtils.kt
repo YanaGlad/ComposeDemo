@@ -1,4 +1,4 @@
-package com.example.composedemo.screens.compose.algebra
+package com.example.composedemo.screens.utils
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -39,7 +39,7 @@ import com.example.composedemo.R
 typealias TicketImage = R.drawable
 
 @Composable
-fun TicketsScreen(navController: NavController) {
+fun TicketsScreen(navController: NavController, images: List<Int>, numberCount: Int) {
     Column {
         Row(modifier = Modifier.align(Alignment.Start)) {
             Column {
@@ -74,23 +74,10 @@ fun TicketsScreen(navController: NavController) {
             .horizontalScroll(rememberScrollState())
         ) {
             SimpleButton("Список билетов")
-            SimpleButton("Номер 1")
-            SimpleButton("Номер 2")
-            SimpleButton("Номер 3")
-            SimpleButton("Номер 4")
+            for(i in 1..numberCount){
+                SimpleButton("Номер $i")
+            }
         }
-
-        val images = listOf(
-            TicketImage.first_algebra, TicketImage.second_algebra, TicketImage.third_algebra,
-            TicketImage.fouth_algebra, TicketImage.fifth_algebra, TicketImage.sixth_algebra, TicketImage.seventh_algebra,
-            TicketImage.eighth_algebra, TicketImage.nineth_algebra, TicketImage.tenth_algebra, TicketImage.eleventh_algebra,
-            TicketImage.twelvth_alebra, TicketImage.thirteenth_algebra, TicketImage.fourteenth_algebra,
-            TicketImage.fifteenth_algebra, TicketImage.sixteenth_algebra, TicketImage.seventeenth_algebra,
-            TicketImage.eighteenth_algebra, TicketImage.nineteenth_algebra, TicketImage.twentieth_algebra,
-            TicketImage.twentyfifth_algebra, TicketImage.twentysecond_algebra, TicketImage.twentythird_algebra,
-            TicketImage.twentyfouth_algebra, TicketImage.twentyfifth_algebra, TicketImage.twentysixth_algebra,
-            TicketImage.twentyseventh_algebra, TicketImage.twentyeighth_algebra, TicketImage.twentynineth_algebra,
-        )
 
         var i = 1
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {

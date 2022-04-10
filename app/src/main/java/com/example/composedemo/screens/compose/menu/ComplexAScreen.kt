@@ -18,6 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
@@ -30,7 +32,9 @@ fun ComplexAScreen(navController: NavController) {
         Row(modifier = Modifier.align(Alignment.End)) {
             Text(
                 text = "Комплексный анализ",
-                modifier = Modifier.offset(y = 95.dp),
+                modifier = Modifier
+                    .offset(x = 10.dp, y = 95.dp)
+                    .width(300.dp),
                 fontWeight = FontWeight.Bold,
                 fontSize = 30.sp,
             )
@@ -66,7 +70,7 @@ fun ComplexAScreen(navController: NavController) {
         BasicNextButton(
             text = "Билеты с решениями",
             navController = navController,
-            destination = "None",
+            destination = COMPLEX_ANALYSIS_TICKETS,
             padding = 5
         )
     }
