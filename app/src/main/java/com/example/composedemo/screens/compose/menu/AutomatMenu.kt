@@ -22,14 +22,14 @@ import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
 @Composable
-fun ComplexAScreen(navController: NavController) {
+fun AutomatMenu(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(modifier = Modifier.align(Alignment.End)) {
             Text(
-                text = "Комплексный анализ",
+                text = "Теория автоматов",
                 modifier = Modifier.offset(y = 95.dp),
                 fontWeight = FontWeight.Bold,
                 fontSize = 30.sp,

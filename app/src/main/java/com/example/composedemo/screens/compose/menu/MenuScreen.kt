@@ -20,8 +20,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.Navigation.ALGEBRA_MENU
+import com.example.composedemo.Navigation.AUTOMAT_MENU
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_MENU
+import com.example.composedemo.Navigation.CONTACT
 import com.example.composedemo.Navigation.IN_DEV
+import com.example.composedemo.Navigation.METHOD_COMPLEX_ANALYSIS_MENU
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
@@ -67,25 +72,25 @@ fun MenuScreen(navController: NavController) {
         BasicNextButton(
             text = "Автоматы и алгоритмы",
             navController = navController,
-            destination = IN_DEV,
+            destination = AUTOMAT_MENU,
             padding = 5
         )
         BasicNextButton(
             text = "Комплексный анализ",
             navController = navController,
-            destination = IN_DEV,
+            destination = COMPLEX_ANALYSIS_MENU,
             padding = 5
         )
         BasicNextButton(
             text = "Методы комплексного анализа",
             navController = navController,
-            destination = IN_DEV,
+            destination = METHOD_COMPLEX_ANALYSIS_MENU,
             padding = 5
         )
         BasicNextButton(
             text = "Связаться с автором",
             navController = navController,
-            destination = IN_DEV,
+            destination = CONTACT,
             padding = 10
         )
     }
