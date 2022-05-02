@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.TicketImage
 import com.example.composedemo.screens.utils.TicketsScreen
@@ -53,6 +54,7 @@ fun AlgebraTickets(navController: NavController) {
             TicketImage.twentyfouth_algebra, TicketImage.twentyfifth_algebra, TicketImage.twentysixth_algebra,
             TicketImage.twentyseventh_algebra, TicketImage.twentyeighth_algebra, TicketImage.twentynineth_algebra,
         ),
-        numberCount = 4
+        numberCount = 4,
+        backDestination = ALGEBRA_TICKETS,
     )
 }

@@ -64,7 +64,7 @@ fun AutomatMenu(navController: NavController) {
         )
 
         BasicNextButton(
-            text = "Билеты с решениями",
+            text = "Дз для получения зачета",
             navController = navController,
             destination = "None",
             padding = 5

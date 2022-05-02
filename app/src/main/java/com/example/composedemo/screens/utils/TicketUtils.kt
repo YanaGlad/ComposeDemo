@@ -39,7 +39,7 @@ import com.example.composedemo.R
 typealias TicketImage = R.drawable
 
 @Composable
-fun TicketsScreen(navController: NavController, images: List<Int>, numberCount: Int) {
+fun TicketsScreen(navController: NavController, images: List<Int>, numberCount: Int, backDestination: String) {
     Column {
         Row(modifier = Modifier.align(Alignment.Start)) {
             Column {
@@ -74,7 +74,7 @@ fun TicketsScreen(navController: NavController, images: List<Int>, numberCount: 
             .horizontalScroll(rememberScrollState())
         ) {
             SimpleButton("Список билетов")
-            for(i in 1..numberCount){
+            for (i in 1..numberCount) {
                 SimpleButton("Номер $i")
             }
         }
@@ -82,14 +82,14 @@ fun TicketsScreen(navController: NavController, images: List<Int>, numberCount: 
         var i = 1
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             images.forEach {
-                TicketView(navController = navController, image = it, number = i++)
+                TicketView(navController = navController, image = it, number = i++, backDestination = backDestination)
             }
         }
     }
 }
 
 @Composable
-private fun TicketView(navController: NavController, image: Int, number: Int) {
+private fun TicketView(navController: NavController, image: Int, number: Int, backDestination: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
         Text(
@@ -127,7 +127,7 @@ private fun TicketView(navController: NavController, image: Int, number: Int) {
                         .clickable(
                             enabled = true,
                             onClick = {
-                                navController.navigate("${Navigation.IMAGE_VIEWER}/$image/${Navigation.ALGEBRA_TICKETS}")
+                                navController.navigate("${Navigation.IMAGE_VIEWER}/$image/$backDestination")
                             }
                         ),
                     contentScale = ContentScale.Fit,
