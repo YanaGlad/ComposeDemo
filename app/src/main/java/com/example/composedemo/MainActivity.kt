@@ -25,6 +25,7 @@ import com.example.composedemo.Navigation.RING_DESCRIPTION_QUIZ
 import com.example.composedemo.Navigation.RESULT_ONBOARDING
 import com.example.composedemo.Navigation.MENU
 import com.example.composedemo.Navigation.METHOD_COMPLEX_ANALYSIS_MENU
+import com.example.composedemo.Navigation.METHOD_COMPLEX_ANALYSIS_TICKETS
 import com.example.composedemo.Navigation.RING_MODULES
 import com.example.composedemo.screens.compose.algebra.AlgebraQuestionsList
 import com.example.composedemo.screens.compose.algebra.AlgebraTickets
@@ -33,6 +34,7 @@ import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
 import com.example.composedemo.screens.compose.algebra.RingModulesDescriptionScreen
 import com.example.composedemo.screens.compose.algebra.TheoryScreen
 import com.example.composedemo.screens.compose.complexa.ComplexTicketsScreen
+import com.example.composedemo.screens.compose.mcomplexa.MComplexTicketsScreen
 import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.AutomatMenu
 import com.example.composedemo.screens.compose.menu.ComplexAScreen
@@ -105,6 +107,7 @@ fun Navigation() {
         composable(AUTOMAT_MENU) { AutomatMenu(navController) }
         composable(CONTACT) { ContactMenu(navController) }
         composable(COMPLEX_ANALYSIS_TICKETS) { ComplexTicketsScreen(navController) }
+        composable(METHOD_COMPLEX_ANALYSIS_TICKETS) { MComplexTicketsScreen(navController) }
     }
 }
 
@@ -129,6 +132,7 @@ object Navigation {
 
     //Методы комплексного анализа
     const val METHOD_COMPLEX_ANALYSIS_MENU = "method_complex_a_menu"
+    const val METHOD_COMPLEX_ANALYSIS_TICKETS = "method_complex_a_tickets"
 
     //Автоматы
     const val AUTOMAT_MENU = "automat_menu"

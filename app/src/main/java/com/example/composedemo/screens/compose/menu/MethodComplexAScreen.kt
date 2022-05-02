@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
@@ -68,7 +69,7 @@ fun MethodComplexAScreen(navController: NavController) {
         BasicNextButton(
             text = "Билеты с решениями",
             navController = navController,
-            destination = "None",
+            destination = Navigation.METHOD_COMPLEX_ANALYSIS_TICKETS,
             padding = 5
         )
     }
