@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
 
@@ -46,27 +47,27 @@ fun AutomatMenu(navController: NavController) {
         BasicNextButton(
             text = "Подготовка за час",
             navController = navController,
-            destination = "None",
+            destination = IN_DEV,
             padding = 5
         )
         BasicNextButton(
             text = "Список вопросов к экзамену",
             navController = navController,
-            destination = "None",
+            destination = IN_DEV,
             padding = 5
         )
 
         BasicNextButton(
             text = "Теория",
             navController = navController,
-            destination = "None",
+            destination = IN_DEV,
             padding = 5
         )
 
         BasicNextButton(
             text = "Дз для получения зачета",
             navController = navController,
-            destination = "None",
+            destination = IN_DEV,
             padding = 5
         )
     }
