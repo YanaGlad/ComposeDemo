@@ -134,6 +134,10 @@ object Navigation {
     const val METHOD_COMPLEX_ANALYSIS_MENU = "method_complex_a_menu"
     const val METHOD_COMPLEX_ANALYSIS_TICKETS = "method_complex_a_tickets"
 
+    //Диффуры
+    const val DU_MENU = "du_menu"
+    const val DU_QUESTION_LIST = "du_question_list"
+
     //Автоматы
     const val AUTOMAT_MENU = "automat_menu"
 
@@ -147,5 +151,4 @@ object Navigation {
     const val RING_MODULES_QUIZ = "ring_module_quiz"
 
     const val DB_MENU = "db_menu"
-    const val DU_MENU = "du_menu"
 }
