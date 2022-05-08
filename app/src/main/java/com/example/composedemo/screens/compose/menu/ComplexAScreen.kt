@@ -20,58 +20,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
+import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
+import com.example.composedemo.screens.utils.MenuView
 
 @Composable
 fun ComplexAScreen(navController: NavController) {
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Row(modifier = Modifier.align(Alignment.End)) {
-            Text(
-                text = "Комплексный анализ",
-                modifier = Modifier
-                    .offset(x = 10.dp, y = 95.dp)
-                    .width(300.dp),
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-            )
-            Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_alien),
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp)
-                    .padding(top = 50.dp),
-                contentDescription = "App theme",
-            )
-        }
-        BasicNextButton(
-            text = "Подготовка за час",
-            navController = navController,
-            destination = "None",
-            padding = 5
+    MenuView(
+        navController = navController,
+        title = "Комплексный анализ",
+        icon = R.drawable.ic_alien,
+        destinationsMap = mapOf(
+            "Подготовка за час" to IN_DEV,
+            "Список вопросов к экзамену" to IN_DEV,
+            "Теория" to IN_DEV,
+            "Билеты с решениями" to COMPLEX_ANALYSIS_TICKETS,
         )
-        BasicNextButton(
-            text = "Список вопросов к экзамену",
-            navController = navController,
-            destination = "None",
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Теория",
-            navController = navController,
-            destination = "None",
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Билеты с решениями",
-            navController = navController,
-            destination = COMPLEX_ANALYSIS_TICKETS,
-            padding = 5
-        )
-    }
+    )
 }

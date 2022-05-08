@@ -18,27 +18,26 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.composedemo.R
 
 @Composable
-fun MenuView(navController: NavController, title: String, destinationsMap: Map<String, String>) {
+fun MenuView(navController: NavController, title: String, icon: Int, destinationsMap: Map<String, String>) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(modifier = Modifier.align(Alignment.End)) {
             Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_signal),
+                imageVector = ImageVector.vectorResource(icon),
                 modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp)
+                    .width(180.dp)
+                    .height(180.dp)
                     .padding(top = 20.dp)
                     .align(Alignment.CenterHorizontally),
                 contentDescription = "App theme",
             )
             Text(
                 text = title,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(),
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 fontSize = 25.sp,

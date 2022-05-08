@@ -21,54 +21,19 @@ import androidx.navigation.NavController
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
+import com.example.composedemo.screens.utils.MenuView
 
 @Composable
 fun AutomatMenu(navController: NavController) {
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Row(modifier = Modifier.align(Alignment.End)) {
-            Text(
-                text = "Теория автоматов",
-                modifier = Modifier.offset(y = 95.dp),
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-            )
-            Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_robot),
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp)
-                    .padding(top = 50.dp),
-                contentDescription = "App theme",
-            )
-        }
-        BasicNextButton(
-            text = "Подготовка за час",
-            navController = navController,
-            destination = IN_DEV,
-            padding = 5
+    MenuView(
+        navController = navController,
+        title = "Теория автоматов",
+        icon = R.drawable.ic_robot,
+        destinationsMap = mapOf(
+            "Подготовка за час" to IN_DEV,
+            "Список вопросов к экзамену" to IN_DEV,
+            "Теория" to IN_DEV,
+            "Дз для получения зачета" to IN_DEV,
         )
-        BasicNextButton(
-            text = "Список вопросов к экзамену",
-            navController = navController,
-            destination = IN_DEV,
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Теория",
-            navController = navController,
-            destination = IN_DEV,
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Дз для получения зачета",
-            navController = navController,
-            destination = IN_DEV,
-            padding = 5
-        )
-    }
+    )
 }

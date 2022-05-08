@@ -18,63 +18,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.Navigation.ALGEBRA_QUESTION_LIST
 import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.Navigation.RING_DESCRIPTION
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.BasicNextButton
+import com.example.composedemo.screens.utils.MenuView
 
 /*
  * @author Yana Glad
  */
 @Composable
 fun AlgebraMenuScreen(navController: NavController) {
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Row(modifier = Modifier.align(Alignment.End)) {
-            Text(
-                text = "Алгебра 4 семестр",
-                modifier = Modifier.offset(y = 95.dp),
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-            )
-            Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_satellite),
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp)
-                    .padding(top = 50.dp),
-                contentDescription = "App theme",
-            )
-        }
-        BasicNextButton(
-            text = "Подготовка за час",
-            navController = navController,
-            destination = RING_DESCRIPTION,
-            padding = 5
+    MenuView(
+        navController = navController,
+        title = "Алгебра",
+        icon = R.drawable.ic_satellite,
+        destinationsMap = mapOf(
+            "Подготовка за час" to RING_DESCRIPTION,
+            "Список вопросов к экзамену" to ALGEBRA_QUESTION_LIST,
+            "Теория" to ALGEBRA_THEORY,
+            "Билеты с решениями" to ALGEBRA_TICKETS,
         )
-        BasicNextButton(
-            text = "Список вопросов к экзамену",
-            navController = navController,
-            destination = ALGEBRA_QUESTION_LIST,
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Теория",
-            navController = navController,
-            destination = ALGEBRA_THEORY,
-            padding = 5
-        )
-
-        BasicNextButton(
-            text = "Билеты с решениями",
-            navController = navController,
-            destination = ALGEBRA_TICKETS,
-            padding = 5
-        )
-    }
+    )
 }
