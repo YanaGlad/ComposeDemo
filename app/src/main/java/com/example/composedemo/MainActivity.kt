@@ -18,6 +18,7 @@ import com.example.composedemo.Navigation.AUTOMAT_MENU
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_MENU
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
 import com.example.composedemo.Navigation.CONTACT
+import com.example.composedemo.Navigation.DU_MENU
 import com.example.composedemo.Navigation.IMAGE_VIEWER
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.RING_DESCRIPTION
@@ -39,6 +40,7 @@ import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.AutomatMenu
 import com.example.composedemo.screens.compose.menu.ComplexAScreen
 import com.example.composedemo.screens.compose.menu.ContactMenu
+import com.example.composedemo.screens.compose.menu.DuMenu
 import com.example.composedemo.screens.compose.menu.InTheDevelopmentScreen
 import com.example.composedemo.screens.compose.menu.MenuScreen
 import com.example.composedemo.screens.compose.menu.MethodComplexAScreen
@@ -108,6 +110,7 @@ fun Navigation() {
         composable(CONTACT) { ContactMenu(navController) }
         composable(COMPLEX_ANALYSIS_TICKETS) { ComplexTicketsScreen(navController) }
         composable(METHOD_COMPLEX_ANALYSIS_TICKETS) { MComplexTicketsScreen(navController) }
+        composable(DU_MENU) { DuMenu(navController) }
     }
 }
 

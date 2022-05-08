@@ -25,6 +25,7 @@ import com.example.composedemo.Navigation.ALGEBRA_MENU
 import com.example.composedemo.Navigation.AUTOMAT_MENU
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_MENU
 import com.example.composedemo.Navigation.CONTACT
+import com.example.composedemo.Navigation.DU_MENU
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.METHOD_COMPLEX_ANALYSIS_MENU
 import com.example.composedemo.R
@@ -85,6 +86,12 @@ fun MenuScreen(navController: NavController) {
             text = "Методы комплексного анализа",
             navController = navController,
             destination = METHOD_COMPLEX_ANALYSIS_MENU,
+            padding = 5
+        )
+        BasicNextButton(
+            text = "Дифференциальные уравнения",
+            navController = navController,
+            destination = DU_MENU,
             padding = 5
         )
         BasicNextButton(
