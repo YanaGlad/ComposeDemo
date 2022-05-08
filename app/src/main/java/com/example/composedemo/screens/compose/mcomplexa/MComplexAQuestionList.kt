@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.ButtonExtendableAnswer
+import com.example.composedemo.screens.utils.ExtImage
 
 @Composable
 fun MComplexAQuestionList() {
@@ -55,10 +56,33 @@ fun MComplexAQuestionList() {
                 contentDescription = "App theme",
             )
         }
+        
+        Text(
+            text = "Вопросы для устного/письменного опроса по разделу 1. Несобственные интегралы",
+            textAlign = TextAlign.Center,
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+        )
 
         ButtonExtendableAnswer(
-            text = "1 - Вопрос 1",
-            answerText = "Ответ 1"
+            text = "1 - Несобственные интегралы с бесконечными пределами интегрирования и от\n" +
+                    "неограниченных функций",
+            answerText = mapOf(
+                "ИНТЕГРАЛЫ С БЕСКОНЕЧНЫМИ ПРЕДЕЛАМИ \n" to null,
+                "Пусть функция f (x) непрерывна на промежутке [a; +inf), тогда по определению " to ExtImage(path = R.drawable.ca_answer_1, height = 150),
+                "Если существует конечный предел в правой части этого равенства, то несобственный интеграл в левой части указанного равенства называется\n" +
+                        "СХОДЯЩИМСЯ, если такой предел не существует, то – РАСХОДЯЩИМСЯ." to null,
+                "\n" to null,
+                "ИНТЕГРАЛЫ ОТ НЕОГРАНИЧЕННЫХ ФУНКЦИЙ \n" to null,
+                "Пусть функция f(x) непрерывна на промежутке [a;b) и lim f(x) при x->b-0 = inf. Тогда по определению "  to ExtImage(path = R.drawable.ca_answer_2, height = 150),
+                "Если существует конечный предел в правой части этого равенства, то несобственный интеграл в левой части указанного равенства называется\n" +
+                        "сходящимся, если такой предел не существует, то – расходящимся." to null
+            )
+        )
+
+        ButtonExtendableAnswer(
+            text = "2 - Признаки сходимости несобственных интегралов",
+            answerText = mapOf()
         )
     }
 }
