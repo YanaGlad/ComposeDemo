@@ -76,7 +76,7 @@ fun BasicNextButton(navController: NavController, destination: String, padding: 
 
 @Composable
 fun ButtonExtendableAnswer(
-    text: String,
+    text: Map<String, ExtImage?>,
     answerText: Map<String, ExtImage?>,
     padding: Int = 10,
 ) {
@@ -88,7 +88,7 @@ fun ButtonExtendableAnswer(
             easing = LinearOutSlowInEasing
         )
     )) {
-        Box(
+        Column(
             modifier = Modifier
                 .padding(padding.dp)
                 .fillMaxWidth()
@@ -100,13 +100,24 @@ fun ButtonExtendableAnswer(
                     onClick = { isExpanded = !isExpanded }
                 ),
         ) {
-            Text(
-                text = text,
-                fontSize = 12.sp,
-                color = Color.Black,
-                modifier = Modifier.padding(padding.dp)
-            )
 
+            text.forEach { entry ->
+                if (entry.value != null) {
+                    TextWithImage(
+                        answerText = entry.key,
+                        padding = padding,
+                        image = entry.value!!.path,
+                        height = entry.value!!.height,
+                    )
+                } else {
+                    Text(
+                        text = entry.key,
+                        fontSize = 12.sp,
+                        color = Color.Black,
+                        modifier = Modifier.padding(padding.dp)
+                    )
+                }
+            }
         }
         if (isExpanded) {
             answerText.forEach { entry ->
@@ -159,7 +170,6 @@ fun ButtonExtendableAnswer(text: String, answerText: String, padding: Int = 20) 
                 color = Color.Black,
                 modifier = Modifier.padding(padding.dp)
             )
-
         }
         if (isExpanded) {
             Text(
@@ -188,7 +198,7 @@ private fun TextWithImage(answerText: String, padding: Int, image: Int, height: 
         modifier = Modifier
             .fillMaxWidth()
             .height(height.dp)
-            .padding(top = 50.dp),
+            .padding(top = padding.dp),
         contentDescription = "image for $answerText",
     )
 }
