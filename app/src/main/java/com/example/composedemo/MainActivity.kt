@@ -135,6 +135,7 @@ object Navigation {
     //Комплексный анализ
     const val COMPLEX_ANALYSIS_MENU = "complex_a_menu"
     const val COMPLEX_ANALYSIS_TICKETS = "complex_a_tickets"
+    const val COMPLEX_ANALYSIS_TR = "complex_a_tr"
 
     //Методы комплексного анализа
     const val METHOD_COMPLEX_ANALYSIS_MENU = "method_complex_a_menu"

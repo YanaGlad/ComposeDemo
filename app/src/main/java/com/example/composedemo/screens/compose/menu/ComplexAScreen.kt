@@ -16,6 +16,7 @@ fun ComplexAScreen(navController: NavController) {
         icon = R.drawable.ic_alien,
         destinationsMap = mapOf(
             "Подготовка за час" to IN_DEV,
+            "Типовой расчет" to IN_DEV,
             "Список вопросов к зачету" to DU_QUESTION_LIST,
             "Теория" to IN_DEV,
             "Билеты с решениями" to COMPLEX_ANALYSIS_TICKETS,
