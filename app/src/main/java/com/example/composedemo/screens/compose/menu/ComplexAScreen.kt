@@ -4,8 +4,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_QUESTION_LIST
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
-import com.example.composedemo.Navigation.DU_QUESTION_LIST
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.R
 import com.example.composedemo.screens.utils.MenuView
@@ -23,7 +23,7 @@ fun ComplexAScreen(navController: NavController) {
         destinationsMap = mapOf(
             "Подготовка за час" to IN_DEV,
             "Типовой расчет" to IN_DEV,
-            "Список вопросов к зачету" to DU_QUESTION_LIST,
+            "Список вопросов к зачету" to COMPLEX_ANALYSIS_QUESTION_LIST,
             "Теория" to IN_DEV,
             "Билеты с решениями" to COMPLEX_ANALYSIS_TICKETS,
         )

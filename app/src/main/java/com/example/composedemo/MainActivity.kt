@@ -16,10 +16,11 @@ import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
 import com.example.composedemo.Navigation.AUTOMAT_MENU
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_MENU
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_QUESTION_LIST
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TR
 import com.example.composedemo.Navigation.CONTACT
 import com.example.composedemo.Navigation.DU_MENU
-import com.example.composedemo.Navigation.DU_QUESTION_LIST
 import com.example.composedemo.Navigation.IMAGE_VIEWER
 import com.example.composedemo.Navigation.IN_DEV
 import com.example.composedemo.Navigation.RING_DESCRIPTION
@@ -36,7 +37,7 @@ import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
 import com.example.composedemo.screens.compose.algebra.RingModulesDescriptionScreen
 import com.example.composedemo.screens.compose.algebra.TheoryScreen
 import com.example.composedemo.screens.compose.complexa.ComplexTicketsScreen
-import com.example.composedemo.screens.compose.mcomplexa.MComplexAQuestionList
+import com.example.composedemo.screens.compose.mcomplexa.ComplexAQuestionList
 import com.example.composedemo.screens.compose.mcomplexa.MComplexTicketsScreen
 import com.example.composedemo.screens.compose.menu.AlgebraMenuScreen
 import com.example.composedemo.screens.compose.menu.AutomatMenu
@@ -113,7 +114,7 @@ fun Navigation() {
         composable(COMPLEX_ANALYSIS_TICKETS) { ComplexTicketsScreen(navController) }
         composable(METHOD_COMPLEX_ANALYSIS_TICKETS) { MComplexTicketsScreen(navController) }
         composable(DU_MENU) { DuMenu(navController) }
-        composable(DU_QUESTION_LIST) { MComplexAQuestionList() }
+        composable(COMPLEX_ANALYSIS_QUESTION_LIST) { ComplexAQuestionList() }
     }
 }
 
@@ -136,6 +137,7 @@ object Navigation {
     const val COMPLEX_ANALYSIS_MENU = "complex_a_menu"
     const val COMPLEX_ANALYSIS_TICKETS = "complex_a_tickets"
     const val COMPLEX_ANALYSIS_TR = "complex_a_tr"
+    const val COMPLEX_ANALYSIS_QUESTION_LIST = "complex_a_tr"
 
     //Методы комплексного анализа
     const val METHOD_COMPLEX_ANALYSIS_MENU = "method_complex_a_menu"
