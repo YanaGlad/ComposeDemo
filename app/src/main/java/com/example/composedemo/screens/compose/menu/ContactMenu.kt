@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -32,10 +33,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.R
 
 @Composable
 fun ContactMenu(navController: NavController) {
+    BackHandler {
+        navController.navigate(Navigation.MENU)
+    }
+
     val context = LocalContext.current
 
     Column(

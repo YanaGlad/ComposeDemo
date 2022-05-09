@@ -1,5 +1,6 @@
 package com.example.composedemo.screens.compose.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +21,10 @@ import com.example.composedemo.screens.utils.BasicNextButton
  */
 @Composable
 fun InTheDevelopmentScreen(navController: NavController){
+    BackHandler {
+        navController.navigate(Navigation.MENU)
+    }
+
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center){
         Text(
             text = "Раздел в разработке",

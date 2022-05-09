@@ -1,7 +1,9 @@
 package com.example.composedemo.screens.compose.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.Navigation.ALGEBRA_QUESTION_LIST
 import com.example.composedemo.Navigation.ALGEBRA_THEORY
 import com.example.composedemo.Navigation.ALGEBRA_TICKETS
@@ -14,6 +16,10 @@ import com.example.composedemo.screens.utils.MenuView
  */
 @Composable
 fun AlgebraMenuScreen(navController: NavController) {
+    BackHandler {
+        navController.navigate(Navigation.MENU)
+    }
+
     MenuView(
         navController = navController,
         title = "Алгебра",

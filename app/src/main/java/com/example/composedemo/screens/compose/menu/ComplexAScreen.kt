@@ -1,7 +1,9 @@
 package com.example.composedemo.screens.compose.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
+import com.example.composedemo.Navigation
 import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_TICKETS
 import com.example.composedemo.Navigation.DU_QUESTION_LIST
 import com.example.composedemo.Navigation.IN_DEV
@@ -10,6 +12,10 @@ import com.example.composedemo.screens.utils.MenuView
 
 @Composable
 fun ComplexAScreen(navController: NavController) {
+    BackHandler {
+        navController.navigate(Navigation.MENU)
+    }
+
     MenuView(
         navController = navController,
         title = "Комплексный анализ",
