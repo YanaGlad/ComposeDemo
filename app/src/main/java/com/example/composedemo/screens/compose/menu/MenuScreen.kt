@@ -1,5 +1,6 @@
 package com.example.composedemo.screens.compose.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,6 +37,8 @@ import com.example.composedemo.screens.utils.BasicNextButton
  */
 @Composable
 fun MenuScreen(navController: NavController) {
+    BackHandler {}
+
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -36,6 +36,7 @@ import com.example.composedemo.screens.compose.algebra.RingDescribeScreenFirst
 import com.example.composedemo.screens.compose.algebra.RingDescribeScreenQuiz
 import com.example.composedemo.screens.compose.algebra.RingModulesDescriptionScreen
 import com.example.composedemo.screens.compose.algebra.TheoryScreen
+import com.example.composedemo.screens.compose.complexa.ComplexATrScreen
 import com.example.composedemo.screens.compose.complexa.ComplexTicketsScreen
 import com.example.composedemo.screens.compose.mcomplexa.ComplexAQuestionList
 import com.example.composedemo.screens.compose.mcomplexa.MComplexTicketsScreen
@@ -115,6 +116,7 @@ fun Navigation() {
         composable(METHOD_COMPLEX_ANALYSIS_TICKETS) { MComplexTicketsScreen(navController) }
         composable(DU_MENU) { DuMenu(navController) }
         composable(COMPLEX_ANALYSIS_QUESTION_LIST) { ComplexAQuestionList() }
+        composable(COMPLEX_ANALYSIS_TR) { ComplexATrScreen(navController) }
     }
 }
 
