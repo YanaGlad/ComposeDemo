@@ -1,5 +1,6 @@
 package com.example.composedemo.screens.compose.algebra
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation
+import com.example.composedemo.Navigation.ALGEBRA_MENU
 import com.example.composedemo.Navigation.RING_MODULES
 import com.example.composedemo.screens.utils.BasicNextButton
 import com.example.composedemo.screens.utils.QuizCheckBox
@@ -27,6 +29,11 @@ import com.example.composedemo.screens.utils.QuizRadioButton
  */
 @Composable
 fun RingDescribeScreenQuiz(navController: NavController) {
+
+    BackHandler {
+        navController.navigate(ALGEBRA_MENU)
+    }
+
     Column(
         modifier = Modifier
             .fillMaxHeight()

@@ -1,5 +1,6 @@
 package com.example.composedemo.screens.compose.menu
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import com.example.composedemo.R
  */
 @Composable
 fun ResultOnboarding(navController: NavController, totalAnswerCount: Int, correctAnswerCount: Int, next: String) {
+    BackHandler {}
     Column(
         modifier = Modifier
             .fillMaxHeight()

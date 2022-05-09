@@ -1,13 +1,19 @@
 package com.example.composedemo.screens.compose.mcomplexa
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.example.composedemo.Navigation.METHOD_COMPLEX_ANALYSIS_TICKETS
+import com.example.composedemo.Navigation.COMPLEX_ANALYSIS_MENU
 import com.example.composedemo.screens.utils.TicketImage
 import com.example.composedemo.screens.utils.TicketsScreen
 
 @Composable
 fun MComplexTicketsScreen(navController: NavController) {
+    BackHandler {
+        navController.navigate(COMPLEX_ANALYSIS_MENU)
+    }
+
     TicketsScreen(
         navController = navController,
         images = listOf(
